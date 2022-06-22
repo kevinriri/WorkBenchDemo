@@ -1,0 +1,25 @@
+CoSort error log started: 2022-06-22 15:10:41
+
+CoSort 10.5.1 D105220317-1540 x86_32 #99999.9999
+Filename: C:\IRI\cosort105\etc\cosort.rc
+	MONITOR_LEVEL            1
+	PRESERVE_ERROR_LOG       ON
+Initialization started... Initialization done
+Command: /SPECIFICATION=Oracle_Overflow_Scott_SCOTT_TEST_DEPARTMENTS.scl 
+Loaded Module: libcsodbc, Id: d1884e7a087c3765768d466a2f3bdc755f34601b 
+Loading Modules from C:\IRI\cosort105
+Loaded Module: libcsutil, Id: e82074cbd081a4cebe98bc6100cb05ff7364f6be 
+SQL DBMS Name: Oracle
+SQL DBMS Version: 12.02.0010
+SQL Driver Name: SQORA32.DLL
+SQL Driver Version: 18.05.0000
+[ODBC][Oracle] auto commit mode = 1
+[ODBC][Oracle] parameter array size = 1024
+Buffers cleanup started... Buffers cleanup done
+
+Blocksize  Memorysize  ExtMaxMemory  RecsInMemory  Buffers    LWF
+    600kb       160mb          40mb         512kb        2      0
+
+Resources cleanup started... Resources cleanup done
+
+CoSort error log done: 2022-06-22 15:10:45

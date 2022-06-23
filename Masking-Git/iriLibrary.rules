@@ -8,5 +8,17 @@
     <properties fieldRulePropertyType="EXPRESSION" value="replace_chars(${FIELDNAME}, &quot;*&quot;, 1, 5)"/>
     <properties fieldRulePropertyType="NAME" value="MASK_${FIELDNAME}"/>
   </rules>
+  <rules xsi:type="rules:FieldRule" name="BankName" editor="pseudoWizard">
+    <properties fieldRulePropertyType="NAME" value="PSEUDO_${FIELDNAME}"/>
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Files-for-Demos/FDIC-set/FDICBankNames.set&quot;"/>
+  </rules>
+  <rules xsi:type="rules:FieldRule" name="250" editor="assignmentWizard">
+    <properties fieldRulePropertyType="EXPRESSION" value="${FIELDNAME} + 250"/>
+    <properties fieldRulePropertyType="NAME" value="EXPRESSION_${FIELDNAME}"/>
+  </rules>
+  <rules xsi:type="rules:FieldRule" name="NameChanged" editor="pseudoWizard">
+    <properties fieldRulePropertyType="NAME" value="PSEUDO_${FIELDNAME}"/>
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Files-for-Demos/SetFiles/DefaultSet-Workbench/names/names_first_last.set&quot;"/>
+  </rules>
 </rules:RuleLibrary>
 

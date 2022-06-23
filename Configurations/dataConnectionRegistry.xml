@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dataConnMap>
+    <info>
+        <entry>
+            <key>Access UcanAccess</key>
+            <value>
+                <active>false</active>
+                <authorization></authorization>
+                <bit></bit>
+                <dsnName>Access UcanAccess</dsnName>
+                <dtpName></dtpName>
+                <fileDsnPath></fileDsnPath>
+                <filterSchema></filterSchema>
+            </value>
+        </entry>
+        <entry>
+            <key>CData Access Source</key>
+            <value>
+                <active>false</active>
+                <authorization></authorization>
+                <bit>32</bit>
+                <dsnName>CData Access Source</dsnName>
+                <dtpName></dtpName>
+                <fileDsnPath></fileDsnPath>
+                <filterSchema></filterSchema>
+            </value>
+        </entry>
+        <entry>
+            <key>CData Access Sys</key>
+            <value>
+                <active>false</active>
+                <authorization></authorization>
+                <bit>32</bit>
+                <dsnName>CData Access Sys</dsnName>
+                <dtpName></dtpName>
+                <fileDsnPath></fileDsnPath>
+                <filterSchema></filterSchema>
+            </value>
+        </entry>
+        <entry>
+            <key>COSORT</key>
+            <value>
+                <active>false</active>
+                <authorization></authorization>
+                <bit>32</bit>
+                <dsnName>COSORT</dsnName>
+                <dtpName></dtpName>
+                <fileDsnPath></fileDsnPath>
+                <filterSchema></filterSchema>
+            </value>
+        </entry>
+        <entry>
+            <key>DB2 Eploder DBA</key>
+            <value>
+                <active>true</active>
+                <authorization>UID=db2inst1;PWD=sorco78;</authorization>
+                <bit>32</bit>
+                <dsnName>DB2 Eploder DBA</dsnName>
+                <dtpName>DB2 Exploder DBA</dtpName>
+                <fileDsnPath></fileDsnPath>
+                <filterSchema></filterSchema>
+            </value>
+        </entry>
+        <entry>
+            <key>DB2 Exploder</key>
+            <value>
+                <active>true</active>
+                <authorization>UID=cosort;PWD=sorco78;</authorization>
+                <bit>32</bit>
+                <dsnName>DB2 Exploder</dsnName>
+                <dtpName>DB2 Exploder Cosort</dtpName>
+                <fileDsnPath></fileDsnPath>
+                <filterSchema></filterSchema>
+            </value>
+        </entry>
+        <entry>
+            <key>DB2 Exploder KR </key>
+            <value>
+                <active>true</active>
+                <authorization>UID=KEVINR;PWD=Fla35kr8;</authorization>
+                <bit>32</bit>
+                <dsnName>DB2 Exploder KR </dsnName>
+                <dtpName>DB2 Exploder KR</dtpName>
+                <fileDsnPath></fileDsnPath>
+                <filterSchema></filterSchema>
+            </value>
+        </entry>
+        <entry>
+            <key>Excel Files</key>
+            <value>
+                <active>false</active>
+                <authorization></authorization>
+                <bit>32</bit>
+                <dsnName>Excel Files</dsnName>
+                <dtpName></dtpName>
+                <fileDsnPath></fileDsnPath>
+                <filterSchema></filterSchema>
+            </value>
+        </entry>
+        <entry>
+            <key>Google BigQuery</key>
+            <value>
+                <active>false</active>
+                <authorization></authorization>
+                <bit>32</bit>
+                <dsnName>Google BigQuery</dsnName>
+                <dtpName></dtpName>
+                <fileDsnPath></fileDsnPath>
+                <filterSchema></filterSchema>
+            </value>
+        </entry>
+        <entry>
+            <key>IRIdv</key>
+            <value>
+                <active>false</active>
+                <authorization></authorization>
+                <bit></bit>
+                <dsnName>IRIdv</dsnName>
+                <dtpName></dtpName>
+                <fileDsnPath></fileDsnPath>
+                <filterSchema></filterSchema>
+            </value>
+        </entry>
+        <entry>
+            <key>MS Access Database</key>
+            <value>
+                <active>false</active>
+                <authorization></authorization>
+                <bit>32</bit>
+                <dsnName>MS Access Database</dsnName>
+                <dtpName></dtpName>
+                <fileDsnPath></fileDsnPath>
+                <filterSchema></filterSchema>
+            </value>
+        </entry>
+        <entry>
+            <key>MySQL Mangled</key>
+            <value>
+                <active>true</active>
+                <authorization>UID=cosort;PWD=sorco78;</authorization>
+                <bit>32</bit>
+                <dsnName>MySQL Mangled</dsnName>
+                <dtpName>MySQL Mangled</dtpName>
+                <fileDsnPath></fileDsnPath>
+                <filterSchema></filterSchema>
+            </value>
+        </entry>
+        <entry>
+            <key>Oracle Overflow Cosort</key>
+            <value>
+                <active>true</active>
+                <authorization>UID=cosort;PWD=sorco78;</authorization>
+                <bit>32</bit>
+                <dsnName>Oracle Overflow Cosort</dsnName>
+                <dtpName>oracle-overflow-cosort</dtpName>
+                <fileDsnPath></fileDsnPath>
+                <filterSchema></filterSchema>
+            </value>
+        </entry>
+        <entry>
+            <key>Oracle Overflow KR</key>
+            <value>
+                <active>true</active>
+                <authorization>UID=KEVINR;PWD=sorco78;</authorization>
+                <bit>32</bit>
+                <dsnName>Oracle Overflow KR</dsnName>
+                <dtpName>Oracle Overflow KevinR</dtpName>
+                <fileDsnPath></fileDsnPath>
+                <filterSchema></filterSchema>
+            </value>
+        </entry>
+        <entry>
+            <key>Oracle Overflow ROLDOS</key>
+            <value>
+                <active>true</active>
+                <authorization>EUID=rPMcm147vxj0gn6E7j9Ntw==;EPWD=m9xgjH0iJvBAGf7oyn418Q==;</authorization>
+                <bit>32</bit>
+                <dsnName>Oracle Overflow ROLDOS</dsnName>
+                <dtpName>Oracle Overflow Roldos</dtpName>
+                <fileDsnPath></fileDsnPath>
+                <filterSchema></filterSchema>
+            </value>
+        </entry>
+        <entry>
+            <key>Oracle Overflow SYS</key>
+            <value>
+                <active>true</active>
+                <authorization>EUID=sv1SCNnJ/mBM+a7ePegalA==;EPWD=Slhm5PLU2rYFXp0MlbVE9g==;</authorization>
+                <bit>32</bit>
+                <dsnName>Oracle Overflow SYS</dsnName>
+                <dtpName>Oracle Overflow SYS</dtpName>
+                <fileDsnPath></fileDsnPath>
+                <filterSchema></filterSchema>
+            </value>
+        </entry>
+        <entry>
+            <key>Oracle Overflow Scott</key>
+            <value>
+                <active>true</active>
+                <authorization>EUID=iD3E/vNdtYb5MlTHti1gJQ==;EPWD=Nc8oVtOwnsHlLtqSzf0G9A==;</authorization>
+                <bit>32</bit>
+                <dsnName>Oracle Overflow Scott</dsnName>
+                <dtpName>Oracle Overflow Scott</dtpName>
+                <fileDsnPath></fileDsnPath>
+                <filterSchema></filterSchema>
+            </value>
+        </entry>
+        <entry>
+            <key>PostgreSQL Poison</key>
+            <value>
+                <active>true</active>
+                <authorization>UID=postgres;PWD=sorco78;</authorization>
+                <bit>32</bit>
+                <dsnName>PostgreSQL Poison</dsnName>
+                <dtpName>PostgreSQL Poison</dtpName>
+                <fileDsnPath></fileDsnPath>
+                <filterSchema></filterSchema>
+            </value>
+        </entry>
+        <entry>
+            <key>PostgreSQL30</key>
+            <value>
+                <active>false</active>
+                <authorization></authorization>
+                <bit>32</bit>
+                <dsnName>PostgreSQL30</dsnName>
+                <dtpName></dtpName>
+                <fileDsnPath></fileDsnPath>
+                <filterSchema></filterSchema>
+            </value>
+        </entry>
+        <entry>
+            <key>SQL Diff Port</key>
+            <value>
+                <active>true</active>
+                <authorization>EUID=qq0zq/IvfdnDyH1FLfcytw==;EPWD=qkeBsaDQwlCHaL+oPd5Mnw==;</authorization>
+                <bit>32</bit>
+                <dsnName>SQL Diff Port</dsnName>
+                <dtpName>SQL Server Diff Port</dtpName>
+                <fileDsnPath></fileDsnPath>
+                <filterSchema></filterSchema>
+            </value>
+        </entry>
+        <entry>
+            <key>SQL Server Diff Bank</key>
+            <value>
+                <active>true</active>
+                <authorization>EUID=DOjhJwb8niC7Mzrw9h1rMw==;PWD=sorco78;</authorization>
+                <bit>32</bit>
+                <dsnName>SQL Server Diff Bank</dsnName>
+                <dtpName>SQL Server Diff Port BANK</dtpName>
+                <fileDsnPath></fileDsnPath>
+                <filterSchema></filterSchema>
+            </value>
+        </entry>
+        <entry>
+            <key>SQL Server Diff IRI</key>
+            <value>
+                <active>true</active>
+                <authorization>EUID=a7XwrUB1r1205DDvEK55xg==;EPWD=m9xgjH0iJvBAGf7oyn418Q==;</authorization>
+                <bit>32</bit>
+                <dsnName>SQL Server Diff IRI</dsnName>
+                <dtpName>SQL Server Diff IRI</dtpName>
+                <fileDsnPath></fileDsnPath>
+                <filterSchema></filterSchema>
+            </value>
+        </entry>
+        <entry>
+            <key>SQL Server Healthcare</key>
+            <value>
+                <active>true</active>
+                <authorization>EUID=cGpw6RVRN5BKiG4l8TnugA==;EPWD=aYHNBaC5E7R2Sj/2DtsejA==;</authorization>
+                <bit>32</bit>
+                <dsnName>SQL Server Healthcare</dsnName>
+                <dtpName>SQL Server Diff Port Healthcare</dtpName>
+                <fileDsnPath></fileDsnPath>
+                <filterSchema></filterSchema>
+            </value>
+        </entry>
+        <entry>
+            <key>SQL Server Retail</key>
+            <value>
+                <active>true</active>
+                <authorization>EUID=tArW7E5vGaXzNRT0mvl2fw==;EPWD=aYHNBaC5E7R2Sj/2DtsejA==;</authorization>
+                <bit>32</bit>
+                <dsnName>SQL Server Retail</dsnName>
+                <dtpName>SQL Server Diff Port Retail</dtpName>
+                <fileDsnPath></fileDsnPath>
+                <filterSchema></filterSchema>
+            </value>
+        </entry>
+        <entry>
+            <key>SQL-Server-Adventure</key>
+            <value>
+                <active>true</active>
+                <authorization>UID=sa;PWD=arwo68;</authorization>
+                <bit>32</bit>
+                <dsnName>SQL-Server-Adventure</dsnName>
+                <dtpName>SQL Server Adventure</dtpName>
+                <fileDsnPath></fileDsnPath>
+                <filterSchema></filterSchema>
+            </value>
+        </entry>
+        <entry>
+            <key>SQLite</key>
+            <value>
+                <active>false</active>
+                <authorization></authorization>
+                <bit>32</bit>
+                <dsnName>SQLite</dsnName>
+                <dtpName></dtpName>
+                <fileDsnPath></fileDsnPath>
+                <filterSchema></filterSchema>
+            </value>
+        </entry>
+        <entry>
+            <key>SQLite Datasource</key>
+            <value>
+                <active>false</active>
+                <authorization></authorization>
+                <bit>32</bit>
+                <dsnName>SQLite Datasource</dsnName>
+                <dtpName></dtpName>
+                <fileDsnPath></fileDsnPath>
+                <filterSchema></filterSchema>
+            </value>
+        </entry>
+        <entry>
+            <key>SQLite UTF-8 Datasource</key>
+            <value>
+                <active>false</active>
+                <authorization></authorization>
+                <bit>32</bit>
+                <dsnName>SQLite UTF-8 Datasource</dsnName>
+                <dtpName></dtpName>
+                <fileDsnPath></fileDsnPath>
+                <filterSchema></filterSchema>
+            </value>
+        </entry>
+        <entry>
+            <key>Sybase ASE Admin</key>
+            <value>
+                <active>false</active>
+                <authorization></authorization>
+                <bit>32</bit>
+                <dsnName>Sybase ASE Admin</dsnName>
+                <dtpName></dtpName>
+                <fileDsnPath></fileDsnPath>
+                <filterSchema></filterSchema>
+            </value>
+        </entry>
+        <entry>
+            <key>Sysbase ASE Seismic</key>
+            <value>
+                <active>false</active>
+                <authorization></authorization>
+                <bit>32</bit>
+                <dsnName>Sysbase ASE Seismic</dsnName>
+                <dtpName></dtpName>
+                <fileDsnPath></fileDsnPath>
+                <filterSchema></filterSchema>
+            </value>
+        </entry>
+        <entry>
+            <key>VerticaCE-IRI</key>
+            <value>
+                <active>true</active>
+                <authorization>UID=IRItest;PWD=arwo68R2;</authorization>
+                <bit>32</bit>
+                <dsnName>VerticaCE-IRI</dsnName>
+                <dtpName>Vertica Test</dtpName>
+                <fileDsnPath></fileDsnPath>
+                <filterSchema></filterSchema>
+            </value>
+        </entry>
+        <entry>
+            <key>dBASE Files</key>
+            <value>
+                <active>false</active>
+                <authorization></authorization>
+                <bit>32</bit>
+                <dsnName>dBASE Files</dsnName>
+                <dtpName></dtpName>
+                <fileDsnPath></fileDsnPath>
+                <filterSchema></filterSchema>
+            </value>
+        </entry>
+    </info>
+</dataConnMap>

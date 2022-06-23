@@ -1,0 +1,10 @@
+ 56361339    	88	Account seriously past due and/or assigned to internal or external collections	Saving Account	CID08297     	962.47
+ 97871397    	61	Account paid in full was a repossession	Saving Account	CID14639     	318.02
+199108530    	82	Current account	Checking Account	CID08081     	250.13
+225318471    	89	Paid or closed account/zero balance	Checking Account	CID14106     	257.45
+244616600    	94	Account 30 days past the due date	Saving Account	CID08297     	258.66
+271553728    	78	Account transferred to another office	Fixed Deposit	CID26386     	258.77
+291960598    	64	Claim filed with government for insured portion of balance on a defaulted loan	Fixed Deposit	CID13515     	318.02
+296061483    	82	Account 120 days past the due date	Fixed Deposit	CID18861     	271.04
+346083915    	82	Account 180 days or more past the due date	Fixed Deposit	CID38961     	250.54
+476546991    	71	Account 150 days past the due date	Checking Account	CID14639     	250.47

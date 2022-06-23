@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<dataClassList>
+    <dataClassInfo>
+        <active>true</active>
+        <description></description>
+        <matchers>
+            <details>W:\Files-for-Demos\SetFiles\BankSetFiles\AccountNumber.set</details>
+            <type>FILE</type>
+        </matchers>
+        <name>ACCOUNT</name>
+        <nameMatcher>ACCOUNT_NUMBER</nameMatcher>
+        <rank></rank>
+        <type>Data Class</type>
+    </dataClassInfo>
+    <dataClassInfo>
+        <active>true</active>
+        <dataClasses>BRANCH_NAME</dataClasses>
+        <dataClasses>CURRENT_BALANCE</dataClasses>
+        <dataClasses>EMAIL</dataClasses>
+        <dataClasses>FULL_NAME</dataClasses>
+        <dataClasses>PHONE_US</dataClasses>
+        <dataClasses>PIN_US</dataClasses>
+        <dataClasses>TRANSACTION_AMOUNT</dataClasses>
+        <description></description>
+        <name>BANK_MASK</name>
+        <type>Data Class Group</type>
+    </dataClassInfo>
+    <dataClassInfo>
+        <active>true</active>
+        <description></description>
+        <matchers>
+            <details>W:\Files-for-Demos\SetFiles\BankSetFiles\FDICBankNames.set</details>
+            <type>FILE</type>
+        </matchers>
+        <name>BRANCH_NAME</name>
+        <nameMatcher>BRANCH_NAME</nameMatcher>
+        <rank></rank>
+        <type>Data Class</type>
+    </dataClassInfo>
+    <dataClassInfo>
+        <active>true</active>
+        <description></description>
+        <matchers>
+            <details>W:\Files-for-Demos\Boyd\cardScore.set</details>
+            <type>FILE</type>
+        </matchers>
+        <name>CARD_SCORE</name>
+        <nameMatcher>CustomerCardScore</nameMatcher>
+        <rank></rank>
+        <type>Data Class</type>
+    </dataClassInfo>
+    <dataClassInfo>
+        <active>true</active>
+        <description></description>
+        <matchers>
+            <details>W:\Files-for-Demos\SetFiles\Shipping_Demo\ContainerOwnerCode.set</details>
+            <type>FILE</type>
+        </matchers>
+        <name>CONTAINER_CODE</name>
+        <nameMatcher>CONTAINER_OWNER_CODE</nameMatcher>
+        <rank></rank>
+        <type>Data Class</type>
+    </dataClassInfo>
+    <dataClassInfo>
+        <active>true</active>
+        <description></description>
+        <matchers>
+            <details>W:\Files-for-Demos\Boyd\creditBalnce.set</details>
+            <type>FILE</type>
+        </matchers>
+        <name>CREDIT_BALANCE</name>
+        <nameMatcher>CurrentTierCreditBalnce</nameMatcher>
+        <rank></rank>
+        <type>Data Class</type>
+    </dataClassInfo>
+    <dataClassInfo>
+        <active>true</active>
+        <description>Credit Card</description>
+        <matchers>
+            <details>\b(4\d{12}(\d{3})?)|(5[1-5]\d{14})|(3[47]\d{13})|(3(0[0-5]|[68]\d)\d{11})|(6(011|5\d{2})\d{12})|((2131|1800|35\d{3})\d{11})|(8\d{15})\b</details>
+            <type>PATTERN</type>
+            <validatorScript>${eclipse_home}\validators\data-classes\validate-credit-card.js</validatorScript>
+        </matchers>
+        <name>CREDIT_CARD</name>
+        <nameMatcher>CREDIT_CARD</nameMatcher>
+        <rank></rank>
+        <type>Data Class</type>
+    </dataClassInfo>
+    <dataClassInfo>
+        <active>true</active>
+        <description></description>
+        <matchers>
+            <details>W:\Files-for-Demos\SetFiles\BankSetFiles\CurrentBalance.set</details>
+            <type>FILE</type>
+        </matchers>
+        <name>CURRENT_BALANCE</name>
+        <nameMatcher>CURRENT_BALANCE</nameMatcher>
+        <rank></rank>
+        <type>Data Class</type>
+    </dataClassInfo>
+    <dataClassInfo>
+        <active>true</active>
+        <description></description>
+        <matchers>
+            <details>W:\Files-for-Demos\SetFiles\Shipping_Demo\CustomerID.set</details>
+            <type>FILE</type>
+        </matchers>
+        <name>CUSTOMER_ID</name>
+        <nameMatcher>CUSTOMER_ID</nameMatcher>
+        <rank></rank>
+        <type>Data Class</type>
+    </dataClassInfo>
+    <dataClassInfo>
+        <active>true</active>
+        <description></description>
+        <name>DATE_OF_BIRTH</name>
+        <nameMatcher>DOB</nameMatcher>
+        <rank></rank>
+        <type>Data Class</type>
+    </dataClassInfo>
+    <dataClassInfo>
+        <active>true</active>
+        <description>Class for American date</description>
+        <matchers>
+            <details>\b([0]\d|[1][012])[-/.]?([012]\d|[3][01])[-/.]?(\d{4})\b</details>
+            <type>PATTERN</type>
+        </matchers>
+        <name>DATE_US_MMDDYYYY</name>
+        <nameMatcher>DATE_US_MMDDYYYY</nameMatcher>
+        <rank></rank>
+        <type>Data Class</type>
+    </dataClassInfo>
+    <dataClassInfo>
+        <active>true</active>
+        <description></description>
+        <name>Department</name>
+        <nameMatcher>DEPARTMENT_ID</nameMatcher>
+        <rank></rank>
+        <type>Data Class</type>
+    </dataClassInfo>
+    <dataClassInfo>
+        <active>true</active>
+        <description>Class for email</description>
+        <matchers>
+            <details>\b[\w._%+-]+@[\w.-]+\.[A-Za-z]{2,4}\b</details>
+            <type>PATTERN</type>
+        </matchers>
+        <name>EMAIL</name>
+        <nameMatcher>EMAIL</nameMatcher>
+        <rank></rank>
+        <type>Data Class</type>
+    </dataClassInfo>
+    <dataClassInfo>
+        <active>true</active>
+        <description>Class for first names</description>
+        <matchers>
+            <details>W:/Workbench-Demo/sets/names/names_first.set</details>
+            <type>FILE</type>
+        </matchers>
+        <name>FIRST_NAME</name>
+        <nameMatcher>FIRST_NAME</nameMatcher>
+        <rank></rank>
+        <type>Data Class</type>
+    </dataClassInfo>
+    <dataClassInfo>
+        <active>true</active>
+        <description></description>
+        <name>FREIGHT_COST</name>
+        <nameMatcher>FREIGHT_COST</nameMatcher>
+        <rank></rank>
+        <type>Data Class</type>
+    </dataClassInfo>
+    <dataClassInfo>
+        <active>true</active>
+        <description>Class for full names</description>
+        <matchers>
+            <details>W:/Workbench-Demo/sets/names/names_first_last.set</details>
+            <type>FILE</type>
+        </matchers>
+        <matchers>
+            <details>W:/Workbench-Demo/sets/names/names_last_comma_first.set</details>
+            <type>FILE</type>
+        </matchers>
+        <name>FULL_NAME</name>
+        <nameMatcher>FULL_NAME</nameMatcher>
+        <rank></rank>
+        <type>Data Class</type>
+    </dataClassInfo>
+    <dataClassInfo>
+        <active>true</active>
+        <dataClasses>DATE_US_MMDDYYYY</dataClasses>
+        <dataClasses>EMAIL</dataClasses>
+        <dataClasses>FIRST_NAME</dataClasses>
+        <dataClasses>MIDDLE_NAME</dataClasses>
+        <dataClasses>LAST_NAME</dataClasses>
+        <dataClasses>FULL_NAME</dataClasses>
+        <dataClasses>IP_ADDRESS</dataClasses>
+        <dataClasses>PIN_US</dataClasses>
+        <dataClasses>PHONE_US</dataClasses>
+        <dataClasses>POSTAL_CODE_US</dataClasses>
+        <dataClasses>URL</dataClasses>
+        <dataClasses>VIN_US</dataClasses>
+        <description>Classes relating to HIPPA regulations</description>
+        <name>HIPAA</name>
+        <type>Data Class Group</type>
+    </dataClassInfo>
+    <dataClassInfo>
+        <active>true</active>
+        <description>Class for IP address</description>
+        <matchers>
+            <details>\b((25[0-5]|2[0-4]\d|[01]?\d\d?)\.){3}(25[0-5]|2[0-4]\d|[01]?\d\d?)\b</details>
+            <type>PATTERN</type>
+        </matchers>
+        <name>IP_ADDRESS</name>
+        <nameMatcher>IP_ADDRESS</nameMatcher>
+        <rank></rank>
+        <type>Data Class</type>
+    </dataClassInfo>
+    <dataClassInfo>
+        <active>true</active>
+        <dataClasses>CARD_SCORE</dataClasses>
+        <dataClasses>CREDIT_BALANCE</dataClasses>
+        <dataClasses>CREDIT_CARD</dataClasses>
+        <dataClasses>DATE_OF_BIRTH</dataClasses>
+        <dataClasses>EMAIL</dataClasses>
+        <dataClasses>MIDDLE_NAME</dataClasses>
+        <dataClasses>PHONE_US</dataClasses>
+        <dataClasses>POINT_BALANCE</dataClasses>
+        <dataClasses>UPGRADE_TYPE</dataClasses>
+        <description></description>
+        <name>IRI_MASK</name>
+        <type>Data Class Group</type>
+    </dataClassInfo>
+    <dataClassInfo>
+        <active>true</active>
+        <description>Class for last names</description>
+        <matchers>
+            <details>W:/Workbench-Demo/sets/names/names_last.set</details>
+            <type>FILE</type>
+        </matchers>
+        <name>LAST_NAME</name>
+        <nameMatcher>LAST_NAME</nameMatcher>
+        <rank></rank>
+        <type>Data Class</type>
+    </dataClassInfo>
+    <dataClassInfo>
+        <active>true</active>
+        <description>Class for middle names</description>
+        <matchers>
+            <details>W:/Workbench-Demo/sets/names/names_first.set</details>
+            <type>FILE</type>
+        </matchers>
+        <name>MIDDLE_NAME</name>
+        <nameMatcher>MIDDLE_NAME</nameMatcher>
+        <rank></rank>
+        <type>Data Class</type>
+    </dataClassInfo>
+    <dataClassInfo>
+        <active>true</active>
+        <dataClasses>FIRST_NAME</dataClasses>
+        <dataClasses>FULL_NAME</dataClasses>
+        <dataClasses>LAST_NAME</dataClasses>
+        <description>Classes relating to names</description>
+        <name>NAMES</name>
+        <type>Data Class Group</type>
+    </dataClassInfo>
+    <dataClassInfo>
+        <active>true</active>
+        <description>Class for US Phone</description>
+        <matchers>
+            <details>^(\+?1?([ .-]?)?)?(\(?([2-9]\d{2})\)?([ .-]?)?)([2-9]\d{2})([ .-]?)(\d{4})([ #eExXtT]*)(\d{2,6})?$</details>
+            <type>PATTERN</type>
+        </matchers>
+        <name>PHONE_US</name>
+        <nameMatcher>PHONE_US</nameMatcher>
+        <rank></rank>
+        <type>Data Class</type>
+    </dataClassInfo>
+    <dataClassInfo>
+        <active>true</active>
+        <description>Class for US Social Security Number</description>
+        <matchers>
+            <details>\b(\d{3}[-]?\d{2}[-]?\d{4})\b</details>
+            <type>PATTERN</type>
+        </matchers>
+        <name>PIN_US</name>
+        <nameMatcher>PIN_US</nameMatcher>
+        <rank></rank>
+        <type>Data Class</type>
+    </dataClassInfo>
+    <dataClassInfo>
+        <active>true</active>
+        <description></description>
+        <matchers>
+            <details>W:\Files-for-Demos\Boyd\pointBalances.set</details>
+            <type>FILE</type>
+        </matchers>
+        <name>POINT_BALANCE</name>
+        <nameMatcher>CurrentPointBalance</nameMatcher>
+        <rank></rank>
+        <type>Data Class</type>
+    </dataClassInfo>
+    <dataClassInfo>
+        <active>true</active>
+        <description>Class for US Zip code</description>
+        <matchers>
+            <details>\b\d{5}(?:-\d{4})?\b</details>
+            <type>PATTERN</type>
+        </matchers>
+        <name>POSTAL_CODE_US</name>
+        <nameMatcher>POSTAL_CODE_US</nameMatcher>
+        <rank></rank>
+        <type>Data Class</type>
+    </dataClassInfo>
+    <dataClassInfo>
+        <active>true</active>
+        <dataClasses>CREDIT_CARD</dataClasses>
+        <dataClasses>DATE_US_MMDDYYYY</dataClasses>
+        <dataClasses>EMAIL</dataClasses>
+        <dataClasses>FIRST_NAME</dataClasses>
+        <dataClasses>MIDDLE_NAME</dataClasses>
+        <dataClasses>LAST_NAME</dataClasses>
+        <dataClasses>FULL_NAME</dataClasses>
+        <dataClasses>IP_ADDRESS</dataClasses>
+        <dataClasses>PIN_US</dataClasses>
+        <dataClasses>PHONE_US</dataClasses>
+        <dataClasses>POSTAL_CODE_US</dataClasses>
+        <dataClasses>URL</dataClasses>
+        <dataClasses>VIN_US</dataClasses>
+        <description>Classes considered sensitive</description>
+        <name>SENSITIVE</name>
+        <type>Data Class Group</type>
+    </dataClassInfo>
+    <dataClassInfo>
+        <active>true</active>
+        <dataClasses>EMAIL</dataClasses>
+        <dataClasses>FREIGHT_COST</dataClasses>
+        <dataClasses>LAST_NAME</dataClasses>
+        <dataClasses>PIN_US</dataClasses>
+        <dataClasses>SHIP_NAME</dataClasses>
+        <description></description>
+        <name>SHIP_MASK</name>
+        <type>Data Class Group</type>
+    </dataClassInfo>
+    <dataClassInfo>
+        <active>true</active>
+        <description></description>
+        <matchers>
+            <details>W:\Files-for-Demos\SetFiles\Shipping_Demo\ShipName.set</details>
+            <type>FILE</type>
+        </matchers>
+        <name>SHIP_NAME</name>
+        <nameMatcher>SHIP_NAME</nameMatcher>
+        <rank></rank>
+        <type>Data Class</type>
+    </dataClassInfo>
+    <dataClassInfo>
+        <active>true</active>
+        <description></description>
+        <matchers>
+            <details>W:\Files-for-Demos\SetFiles\BankSetFiles\street.set</details>
+            <type>FILE</type>
+        </matchers>
+        <name>STREET</name>
+        <nameMatcher>STREETS</nameMatcher>
+        <rank></rank>
+        <type>Data Class</type>
+    </dataClassInfo>
+    <dataClassInfo>
+        <active>true</active>
+        <description></description>
+        <matchers>
+            <details>W:\Files-for-Demos\SetFiles\BankSetFiles\TransactionAmount.set</details>
+            <type>FILE</type>
+        </matchers>
+        <name>TRANSACTION_AMOUNT</name>
+        <nameMatcher>TRANSACTION_AMOUNT</nameMatcher>
+        <rank></rank>
+        <type>Data Class</type>
+    </dataClassInfo>
+    <dataClassInfo>
+        <active>true</active>
+        <description></description>
+        <matchers>
+            <details>W:\Files-for-Demos\Boyd\upgradeType.set</details>
+            <type>FILE</type>
+        </matchers>
+        <name>UPGRADE_TYPE</name>
+        <nameMatcher>UpgradeType</nameMatcher>
+        <rank></rank>
+        <type>Data Class</type>
+    </dataClassInfo>
+    <dataClassInfo>
+        <active>true</active>
+        <description>Class for website URL</description>
+        <matchers>
+            <details>\b(\w+):\/\/([\w\.-@]+)\.([A-Za-z\.]{2,6})([\/\w \(\)\.-]*)*\/?\b</details>
+            <type>PATTERN</type>
+        </matchers>
+        <name>URL</name>
+        <nameMatcher>URL</nameMatcher>
+        <rank></rank>
+        <type>Data Class</type>
+    </dataClassInfo>
+    <dataClassInfo>
+        <active>true</active>
+        <description>Class for Vehicle Identification Number</description>
+        <matchers>
+            <details>\b([A-HJ-NPR-Z\d]{3})([A-HJ-NPR-Z\d]{5})([\dX])(([A-HJ-NPR-Z\d])([A-HJ-NPR-Z\d])([A-HJ-NPR-Z\d]{6}))\b</details>
+            <type>PATTERN</type>
+            <validatorScript>${eclipse_home}\validators\data-classes\validate-vin-us.js</validatorScript>
+        </matchers>
+        <name>VIN_US</name>
+        <nameMatcher>VIN_US</nameMatcher>
+        <rank></rank>
+        <type>Data Class</type>
+    </dataClassInfo>
+</dataClassList>

@@ -1,10 +1,10 @@
 # Generated with IRI Workbench - New Data Class Database Masking Job
 #
  # Author: kevinr
- # Created: 2022-06-22 15:09:23
+ # Created: 2022-06-23 08:23:02
  #
 
-/INFILES="SCOTT.TEST_EMPLOYEES;DSN=Oracle Overflow Scott;EUID=iD3E/vNdtYb5MlTHti1gJQ==;EPWD=Nc8oVtOwnsHlLtqSzf0G9A==;"
+/INFILE="SCOTT.TEST_EMPLOYEES;DSN=Oracle Overflow Scott;EUID=iD3E/vNdtYb5MlTHti1gJQ==;EPWD=Nc8oVtOwnsHlLtqSzf0G9A==;"
 	/PROCESS=ODBC
 	/ALIAS=ORACLE_OVERFLOW_SCOTT_SCOTT_TEST_EMPLOYEES
 	/FIELD=(ID, TYPE=NUMERIC, PRECISION=0, POSITION=1, SEPARATOR="\t", ODEF="ID")

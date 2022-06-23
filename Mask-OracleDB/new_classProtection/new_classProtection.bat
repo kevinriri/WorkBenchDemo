@@ -2,14 +2,11 @@
 SETLOCAL
 sortcl /SPECIFICATION=Oracle_Overflow_Scott_SCOTT_CLIENT.scl
 sortcl /SPECIFICATION=Oracle_Overflow_Scott_SCOTT_CLIENT_SUB.scl
-sortcl /SPECIFICATION=Oracle_Overflow_Scott_SCOTT_DV_EMPLOYEES_HR.scl
 sortcl /SPECIFICATION=Oracle_Overflow_Scott_SCOTT_EMPLOYEES.scl
-sortcl /SPECIFICATION=Oracle_Overflow_Scott_SCOTT_JOB_HISTORY.scl
 sortcl /SPECIFICATION=Oracle_Overflow_Scott_SCOTT_PATIENT_RECORD.scl
 sortcl /SPECIFICATION=Oracle_Overflow_Scott_SCOTT_PERSONS.scl
 sortcl /SPECIFICATION=Oracle_Overflow_Scott_SCOTT_TEST_DEPARTMENTS.scl
 sortcl /SPECIFICATION=Oracle_Overflow_Scott_SCOTT_TEST_EMPLOYEES.scl
 sortcl /SPECIFICATION=Oracle_Overflow_Scott_SCOTT_TEST_JOB_HISTORY.scl
 sortcl /SPECIFICATION=Oracle_Overflow_Scott_SCOTT_V_EMPLOYEES.scl
-sortcl /SPECIFICATION=Oracle_Overflow_Scott_SCOTT_report.scl
 echo Job Ended

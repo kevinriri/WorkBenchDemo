@@ -1,0 +1,2934 @@
+<?xml version="1.0" encoding="ASCII"?>
+<flow:FlowBatch xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddf="http://www.iri.com/lang/ddf/Ddf" xmlns:flow="http://flow/1.0" xmlns:scl="http://www.iri.com/lang/scl/Scl" name="new_batch" exportDescription="true">
+  <flowlets name="new_batch">
+    <blocks xsi:type="flow:StartBlock" name="Start" outputConnections="Start_To_DisableFK_Multiple_Tables"/>
+    <blocks xsi:type="flow:MSSQLCommandExec" name="DisableFK_Multiple_Tables" outputConnections="DisableFK_Multiple_Tables_To_BRANCH_ID_UNIQUE.rcl" inputConnections="Start_To_DisableFK_Multiple_Tables" command="sqlcmd" statementFile="DisableFK_Multiple_Tables.sql" statementText="ALTER TABLE BANK.CUSTOMER NOCHECK CONSTRAINT CUSTOMER_FK1&#xD;&#xA;GO&#xD;&#xA;ALTER TABLE BANK.TRANSACTION NOCHECK CONSTRAINT TRANSACTION_FK1&#xD;&#xA;GO&#xD;&#xA;ALTER TABLE BANK.ACCOUNT NOCHECK CONSTRAINT ACCOUNT_FK1&#xD;&#xA;GO&#xD;&#xA;ALTER TABLE BANK.TRANSACTION NOCHECK CONSTRAINT TRANSACTION_FK2&#xD;&#xA;GO&#xD;&#xA;">
+      <dbDataInfo name="Multiple_Tables" DSN="SQLServerDiffBank" DTPName="SQLServerDiffBANK" providerName="SQL Server" database="SQL Server" hostName="192.168.3.95" port="1444" instanceName="support" userName="IRIDEMO" password="sorco78" delimiter="&#x9;"/>
+    </blocks>
+    <blocks xsi:type="flow:TransformMappingBlock" name="BRANCH_ID_UNIQUE.rcl" iriJob="BRANCH_ID_UNIQUE.rcl">
+      <inputDatas name="uniqueseedgeneration" inputConnections="DisableFK_Multiple_Tables_To_BRANCH_ID_UNIQUE.rcl">
+        <dataInfo xsi:type="flow:FileDataInfo" name="uniqueseedgeneration" fileName="uniqueseedgeneration" type="">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="BRANCH_ID"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="BRANCH_ID"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/BranchID.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+        </dataInfo>
+        <sectionOptions xsi:type="ddf:Process" name="RANDOM"/>
+        <sectionOptions xsi:type="scl:Alias" alias="uniqueseedgeneration"/>
+        <sectionOptions xsi:type="scl:Incollect" value="30"/>
+      </inputDatas>
+      <outputDatas name="BRANCH_ID.sed" outputConnections="BRANCH_ID_UNIQUE.rcl_To_TRANSACTION_CODE_UNIQUE.rcl">
+        <dataInfo xsi:type="flow:FileDataInfo" name="BRANCH_ID.sed" fileName="W:/Gits/git-workbench-demos/WorkBenchDemo/RowGen-BankSQL/SavedScripts/new_batch/BRANCH_ID.sed" type="">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="BRANCH_ID"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="BRANCH_ID"/>
+          </fields>
+        </dataInfo>
+        <sectionOptions xsi:type="ddf:Process"/>
+        <sectionOptions xsi:type="scl:Outcollect" outCollect="15"/>
+      </outputDatas>
+      <mappings name="BRANCH_ID_To_BRANCH_ID" sourceField="//@flowlets.0/@blocks.2/@inputDatas.0/@dataInfo/@fields.0" targetField="//@flowlets.0/@blocks.2/@transformData/@dataInfo/@fields.0"/>
+      <mappings name="BRANCH_ID_To_BRANCH_ID" sourceField="//@flowlets.0/@blocks.2/@transformData/@dataInfo/@fields.0" targetField="//@flowlets.0/@blocks.2/@outputDatas.0/@dataInfo/@fields.0"/>
+      <transformData xsi:type="flow:SortAction" name="Sort">
+        <dataInfo xsi:type="flow:InternalDataInfo" name="Sort">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="BRANCH_ID"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="BRANCH_ID"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/BranchID.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+        </dataInfo>
+        <sectionOptions xsi:type="scl:Key">
+          <key>
+            <key name="BRANCH_ID"/>
+          </key>
+        </sectionOptions>
+        <transformAction>
+          <keys xsi:type="scl:Key">
+            <key>
+              <key name="BRANCH_ID"/>
+            </key>
+          </keys>
+          <actionOptions xsi:type="scl:Duplicate"/>
+        </transformAction>
+      </transformData>
+    </blocks>
+    <blocks xsi:type="flow:TransformMappingBlock" name="TRANSACTION_CODE_UNIQUE.rcl" iriJob="TRANSACTION_CODE_UNIQUE.rcl">
+      <inputDatas name="uniqueseedgeneration" inputConnections="BRANCH_ID_UNIQUE.rcl_To_TRANSACTION_CODE_UNIQUE.rcl">
+        <dataInfo xsi:type="flow:FileDataInfo" name="uniqueseedgeneration" fileName="uniqueseedgeneration" type="">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="TRANSACTION_CODE"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="TRANSACTION_CODE"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/TransactionCode.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+        </dataInfo>
+        <sectionOptions xsi:type="ddf:Process" name="RANDOM"/>
+        <sectionOptions xsi:type="scl:Alias" alias="uniqueseedgeneration"/>
+        <sectionOptions xsi:type="scl:Incollect" value="30"/>
+      </inputDatas>
+      <outputDatas name="TRANSACTION_CODE.sed" outputConnections="TRANSACTION_CODE_UNIQUE.rcl_To_CUSTOMER_ID_UNIQUE.rcl">
+        <dataInfo xsi:type="flow:FileDataInfo" name="TRANSACTION_CODE.sed" fileName="W:/Gits/git-workbench-demos/WorkBenchDemo/RowGen-BankSQL/SavedScripts/new_batch/TRANSACTION_CODE.sed" type="">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="TRANSACTION_CODE"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="TRANSACTION_CODE"/>
+          </fields>
+        </dataInfo>
+        <sectionOptions xsi:type="ddf:Process"/>
+        <sectionOptions xsi:type="scl:Outcollect" outCollect="15"/>
+      </outputDatas>
+      <mappings name="TRANSACTION_CODE_To_TRANSACTION_CODE" sourceField="//@flowlets.0/@blocks.3/@inputDatas.0/@dataInfo/@fields.0" targetField="//@flowlets.0/@blocks.3/@transformData/@dataInfo/@fields.0"/>
+      <mappings name="TRANSACTION_CODE_To_TRANSACTION_CODE" sourceField="//@flowlets.0/@blocks.3/@transformData/@dataInfo/@fields.0" targetField="//@flowlets.0/@blocks.3/@outputDatas.0/@dataInfo/@fields.0"/>
+      <transformData xsi:type="flow:SortAction" name="Sort">
+        <dataInfo xsi:type="flow:InternalDataInfo" name="Sort">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="TRANSACTION_CODE"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="TRANSACTION_CODE"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/TransactionCode.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+        </dataInfo>
+        <sectionOptions xsi:type="scl:Key">
+          <key>
+            <key name="TRANSACTION_CODE"/>
+          </key>
+        </sectionOptions>
+        <transformAction>
+          <keys xsi:type="scl:Key">
+            <key>
+              <key name="TRANSACTION_CODE"/>
+            </key>
+          </keys>
+          <actionOptions xsi:type="scl:Duplicate"/>
+        </transformAction>
+      </transformData>
+    </blocks>
+    <blocks xsi:type="flow:TransformMappingBlock" name="CUSTOMER_ID_UNIQUE.rcl" iriJob="CUSTOMER_ID_UNIQUE.rcl">
+      <inputDatas name="uniqueseedgeneration" inputConnections="TRANSACTION_CODE_UNIQUE.rcl_To_CUSTOMER_ID_UNIQUE.rcl">
+        <dataInfo xsi:type="flow:FileDataInfo" name="uniqueseedgeneration" fileName="uniqueseedgeneration" type="">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="CUSTOMER_ID"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="CUSTOMER_ID"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/CustomerID.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+        </dataInfo>
+        <sectionOptions xsi:type="ddf:Process" name="RANDOM"/>
+        <sectionOptions xsi:type="scl:Alias" alias="uniqueseedgeneration"/>
+        <sectionOptions xsi:type="scl:Incollect" value="30"/>
+      </inputDatas>
+      <outputDatas name="CUSTOMER_ID.sed" outputConnections="CUSTOMER_ID_UNIQUE.rcl_To_ACCOUNT_NUMBER_UNIQUE.rcl">
+        <dataInfo xsi:type="flow:FileDataInfo" name="CUSTOMER_ID.sed" fileName="W:/Gits/git-workbench-demos/WorkBenchDemo/RowGen-BankSQL/SavedScripts/new_batch/CUSTOMER_ID.sed" type="">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="CUSTOMER_ID"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="CUSTOMER_ID"/>
+          </fields>
+        </dataInfo>
+        <sectionOptions xsi:type="ddf:Process"/>
+        <sectionOptions xsi:type="scl:Outcollect" outCollect="15"/>
+      </outputDatas>
+      <mappings name="CUSTOMER_ID_To_CUSTOMER_ID" sourceField="//@flowlets.0/@blocks.4/@inputDatas.0/@dataInfo/@fields.0" targetField="//@flowlets.0/@blocks.4/@transformData/@dataInfo/@fields.0"/>
+      <mappings name="CUSTOMER_ID_To_CUSTOMER_ID" sourceField="//@flowlets.0/@blocks.4/@transformData/@dataInfo/@fields.0" targetField="//@flowlets.0/@blocks.4/@outputDatas.0/@dataInfo/@fields.0"/>
+      <transformData xsi:type="flow:SortAction" name="Sort">
+        <dataInfo xsi:type="flow:InternalDataInfo" name="Sort">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="CUSTOMER_ID"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="CUSTOMER_ID"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/CustomerID.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+        </dataInfo>
+        <sectionOptions xsi:type="scl:Key">
+          <key>
+            <key name="CUSTOMER_ID"/>
+          </key>
+        </sectionOptions>
+        <transformAction>
+          <keys xsi:type="scl:Key">
+            <key>
+              <key name="CUSTOMER_ID"/>
+            </key>
+          </keys>
+          <actionOptions xsi:type="scl:Duplicate"/>
+        </transformAction>
+      </transformData>
+    </blocks>
+    <blocks xsi:type="flow:TransformMappingBlock" name="ACCOUNT_NUMBER_UNIQUE.rcl" iriJob="ACCOUNT_NUMBER_UNIQUE.rcl">
+      <inputDatas name="uniqueseedgeneration" inputConnections="CUSTOMER_ID_UNIQUE.rcl_To_ACCOUNT_NUMBER_UNIQUE.rcl">
+        <dataInfo xsi:type="flow:FileDataInfo" name="uniqueseedgeneration" fileName="uniqueseedgeneration" type="">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="ACCOUNT_NUMBER"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="ACCOUNT_NUMBER"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/AccountNumber.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+        </dataInfo>
+        <sectionOptions xsi:type="ddf:Process" name="RANDOM"/>
+        <sectionOptions xsi:type="scl:Alias" alias="uniqueseedgeneration"/>
+        <sectionOptions xsi:type="scl:Incollect" value="30"/>
+      </inputDatas>
+      <outputDatas name="ACCOUNT_NUMBER.sed" outputConnections="ACCOUNT_NUMBER_UNIQUE.rcl_To_TRANSACTION_ID_UNIQUE.rcl">
+        <dataInfo xsi:type="flow:FileDataInfo" name="ACCOUNT_NUMBER.sed" fileName="W:/Gits/git-workbench-demos/WorkBenchDemo/RowGen-BankSQL/SavedScripts/new_batch/ACCOUNT_NUMBER.sed" type="">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="ACCOUNT_NUMBER"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="ACCOUNT_NUMBER"/>
+          </fields>
+        </dataInfo>
+        <sectionOptions xsi:type="ddf:Process"/>
+        <sectionOptions xsi:type="scl:Outcollect" outCollect="15"/>
+      </outputDatas>
+      <mappings name="ACCOUNT_NUMBER_To_ACCOUNT_NUMBER" sourceField="//@flowlets.0/@blocks.5/@inputDatas.0/@dataInfo/@fields.0" targetField="//@flowlets.0/@blocks.5/@transformData/@dataInfo/@fields.0"/>
+      <mappings name="ACCOUNT_NUMBER_To_ACCOUNT_NUMBER" sourceField="//@flowlets.0/@blocks.5/@transformData/@dataInfo/@fields.0" targetField="//@flowlets.0/@blocks.5/@outputDatas.0/@dataInfo/@fields.0"/>
+      <transformData xsi:type="flow:SortAction" name="Sort">
+        <dataInfo xsi:type="flow:InternalDataInfo" name="Sort">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="ACCOUNT_NUMBER"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="ACCOUNT_NUMBER"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/AccountNumber.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+        </dataInfo>
+        <sectionOptions xsi:type="scl:Key">
+          <key>
+            <key name="ACCOUNT_NUMBER"/>
+          </key>
+        </sectionOptions>
+        <transformAction>
+          <keys xsi:type="scl:Key">
+            <key>
+              <key name="ACCOUNT_NUMBER"/>
+            </key>
+          </keys>
+          <actionOptions xsi:type="scl:Duplicate"/>
+        </transformAction>
+      </transformData>
+    </blocks>
+    <blocks xsi:type="flow:TransformMappingBlock" name="TRANSACTION_ID_UNIQUE.rcl" iriJob="TRANSACTION_ID_UNIQUE.rcl">
+      <inputDatas name="uniqueseedgeneration" inputConnections="ACCOUNT_NUMBER_UNIQUE.rcl_To_TRANSACTION_ID_UNIQUE.rcl">
+        <dataInfo xsi:type="flow:FileDataInfo" name="uniqueseedgeneration" fileName="uniqueseedgeneration" type="">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="TRANSACTION_ID"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Size" size="14"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="TRANSACTION_ID"/>
+          </fields>
+        </dataInfo>
+        <sectionOptions xsi:type="ddf:Process" name="RANDOM"/>
+        <sectionOptions xsi:type="scl:Alias" alias="uniqueseedgeneration"/>
+        <sectionOptions xsi:type="scl:Incollect" value="30"/>
+      </inputDatas>
+      <outputDatas name="TRANSACTION_ID.sed" outputConnections="TRANSACTION_ID_UNIQUE.rcl_To_Wait-for-Sets">
+        <dataInfo xsi:type="flow:FileDataInfo" name="TRANSACTION_ID.sed" fileName="W:/Gits/git-workbench-demos/WorkBenchDemo/RowGen-BankSQL/SavedScripts/new_batch/TRANSACTION_ID.sed" type="">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="TRANSACTION_ID"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="TRANSACTION_ID"/>
+          </fields>
+        </dataInfo>
+        <sectionOptions xsi:type="ddf:Process"/>
+        <sectionOptions xsi:type="scl:Outcollect" outCollect="15"/>
+      </outputDatas>
+      <mappings name="TRANSACTION_ID_To_TRANSACTION_ID" sourceField="//@flowlets.0/@blocks.6/@inputDatas.0/@dataInfo/@fields.0" targetField="//@flowlets.0/@blocks.6/@transformData/@dataInfo/@fields.0"/>
+      <mappings name="TRANSACTION_ID_To_TRANSACTION_ID" sourceField="//@flowlets.0/@blocks.6/@transformData/@dataInfo/@fields.0" targetField="//@flowlets.0/@blocks.6/@outputDatas.0/@dataInfo/@fields.0"/>
+      <transformData xsi:type="flow:SortAction" name="Sort">
+        <dataInfo xsi:type="flow:InternalDataInfo" name="Sort">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="TRANSACTION_ID"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Size" size="14"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="TRANSACTION_ID"/>
+          </fields>
+        </dataInfo>
+        <sectionOptions xsi:type="scl:Key">
+          <key>
+            <key name="TRANSACTION_ID"/>
+          </key>
+        </sectionOptions>
+        <transformAction>
+          <keys xsi:type="scl:Key">
+            <key>
+              <key name="TRANSACTION_ID"/>
+            </key>
+          </keys>
+          <actionOptions xsi:type="scl:Duplicate"/>
+        </transformAction>
+      </transformData>
+    </blocks>
+    <blocks xsi:type="flow:WaitFiles" name="Wait-for-Sets" outputConnections="Wait-for-Sets_To_BANK_BRANCH.rcl" inputConnections="TRANSACTION_ID_UNIQUE.rcl_To_Wait-for-Sets" waitInSeconds="3">
+      <fileNames>BRANCH_ID.sed</fileNames>
+      <fileNames>TRANSACTION_CODE.sed</fileNames>
+      <fileNames>CUSTOMER_ID.sed</fileNames>
+      <fileNames>ACCOUNT_NUMBER.sed</fileNames>
+      <fileNames>TRANSACTION_ID.sed</fileNames>
+    </blocks>
+    <blocks xsi:type="flow:TransformMappingBlock" name="BANK_BRANCH.rcl" iriJob="BANK_BRANCH.rcl">
+      <inputDatas name="BANK_BRANCH.in" inputConnections="Wait-for-Sets_To_BANK_BRANCH.rcl">
+        <dataInfo xsi:type="flow:FileDataInfo" name="BANK_BRANCH.in" fileName="BANK_BRANCH.in" type="">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="BRANCH_ID"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Size" size="20"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="BRANCH_ID"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;BRANCH_ID.sed&quot;">
+                <setOption xsi:type="ddf:SetSelect" select="ALL"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="LOCATION"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="2"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="LOCATION"/>
+            <fieldAttributes xsi:type="ddf:MinSize" number="1"/>
+            <fieldAttributes xsi:type="ddf:MaxSize" number="70"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/street.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="BRANCH_DETAIL"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="3"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="BRANCH_DETAIL"/>
+            <fieldAttributes xsi:type="ddf:MinSize" number="1"/>
+            <fieldAttributes xsi:type="ddf:MaxSize" number="30"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/BranchDetail.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="BRANCH_NAME"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="4"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="BRANCH_NAME"/>
+            <fieldAttributes xsi:type="ddf:MinSize" number="1"/>
+            <fieldAttributes xsi:type="ddf:MaxSize" number="80"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/FDICBankNames.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+        </dataInfo>
+        <sectionOptions xsi:type="ddf:Process" name="RANDOM"/>
+        <sectionOptions xsi:type="scl:Alias" alias="BANK_BRANCH"/>
+        <sectionOptions xsi:type="scl:NullString" value=""/>
+        <sectionOptions xsi:type="scl:Incollect" value="15"/>
+      </inputDatas>
+      <outputDatas name="BANK.BRANCH" outputConnections="BANK_BRANCH.rcl_To_BANK_TRANSACTION_TYPE.rcl">
+        <dataInfo xsi:type="flow:DBDataInfo" name="SQLServerDiffBANK.BANK.BRANCH" DSN="SQLServerDiffBank" DTPName="SQLServerDiffBANK" providerName="SQL Server" database="SQL Server" hostName="192.168.3.95" port="1444" instanceName="support" userName="IRIDEMO" password="sorco78" schema="BANK" table="BRANCH" delimiter="&#x9;">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="BRANCH_ID"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="BRANCH_ID"/>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="LOCATION"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="2"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="LOCATION"/>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="BRANCH_DETAIL"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="3"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="BRANCH_DETAIL"/>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="BRANCH_NAME"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="4"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="BRANCH_NAME"/>
+          </fields>
+          <constraints xsi:type="flow:PrimaryKey" name="BRANCH_UC1">
+            <fields>BRANCH_ID</fields>
+          </constraints>
+          <constraints xsi:type="flow:Unique" name="BRANCH_IX1">
+            <fields>BRANCH_ID</fields>
+          </constraints>
+          <indexes name="BRANCH_UC1" isUnique="true">
+            <fields>BRANCH_ID</fields>
+          </indexes>
+          <indexes name="BRANCH_IX1" isUnique="true">
+            <fields>BRANCH_ID</fields>
+          </indexes>
+        </dataInfo>
+        <sectionOptions xsi:type="ddf:Process" name="ODBC"/>
+        <sectionOptions xsi:type="scl:OutputMode"/>
+      </outputDatas>
+      <outputDatas name="BRANCH_ID.sel">
+        <dataInfo xsi:type="flow:FileDataInfo" name="BRANCH_ID.sel" fileName="W:/Gits/git-workbench-demos/WorkBenchDemo/RowGen-BankSQL/SavedScripts/new_batch/BRANCH_ID.sel" type="">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="BRANCH_ID"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="BRANCH_ID"/>
+          </fields>
+        </dataInfo>
+        <sectionOptions xsi:type="ddf:Process"/>
+      </outputDatas>
+      <mappings name="BRANCH_ID_To_BRANCH_ID" sourceField="//@flowlets.0/@blocks.8/@inputDatas.0/@dataInfo/@fields.0" targetField="//@flowlets.0/@blocks.8/@transformData/@dataInfo/@fields.0"/>
+      <mappings name="LOCATION_To_LOCATION" sourceField="//@flowlets.0/@blocks.8/@inputDatas.0/@dataInfo/@fields.1" targetField="//@flowlets.0/@blocks.8/@transformData/@dataInfo/@fields.1"/>
+      <mappings name="BRANCH_DETAIL_To_BRANCH_DETAIL" sourceField="//@flowlets.0/@blocks.8/@inputDatas.0/@dataInfo/@fields.2" targetField="//@flowlets.0/@blocks.8/@transformData/@dataInfo/@fields.2"/>
+      <mappings name="BRANCH_NAME_To_BRANCH_NAME" sourceField="//@flowlets.0/@blocks.8/@inputDatas.0/@dataInfo/@fields.3" targetField="//@flowlets.0/@blocks.8/@transformData/@dataInfo/@fields.3"/>
+      <mappings name="BRANCH_ID_To_BRANCH_ID" sourceField="//@flowlets.0/@blocks.8/@transformData/@dataInfo/@fields.0" targetField="//@flowlets.0/@blocks.8/@outputDatas.0/@dataInfo/@fields.0"/>
+      <mappings name="LOCATION_To_LOCATION" sourceField="//@flowlets.0/@blocks.8/@transformData/@dataInfo/@fields.1" targetField="//@flowlets.0/@blocks.8/@outputDatas.0/@dataInfo/@fields.1"/>
+      <mappings name="BRANCH_DETAIL_To_BRANCH_DETAIL" sourceField="//@flowlets.0/@blocks.8/@transformData/@dataInfo/@fields.2" targetField="//@flowlets.0/@blocks.8/@outputDatas.0/@dataInfo/@fields.2"/>
+      <mappings name="BRANCH_NAME_To_BRANCH_NAME" sourceField="//@flowlets.0/@blocks.8/@transformData/@dataInfo/@fields.3" targetField="//@flowlets.0/@blocks.8/@outputDatas.0/@dataInfo/@fields.3"/>
+      <mappings name="BRANCH_ID_To_BRANCH_ID" sourceField="//@flowlets.0/@blocks.8/@transformData/@dataInfo/@fields.0" targetField="//@flowlets.0/@blocks.8/@outputDatas.1/@dataInfo/@fields.0"/>
+      <comments>
+        <comments>Generated with IRI Workbench - New Database Test Data Job</comments>
+        <comments xsi:nil="true"/>
+        <comments>Author: kevinr</comments>
+        <comments>Created: 2022-06-24 11:25:33</comments>
+        <comments xsi:nil="true"/>
+      </comments>
+      <transformData xsi:type="flow:SortAction" name="Sort">
+        <dataInfo xsi:type="flow:InternalDataInfo" name="Sort">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="BRANCH_ID"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Size" size="20"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="BRANCH_ID"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;BRANCH_ID.sed&quot;">
+                <setOption xsi:type="ddf:SetSelect" select="ALL"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="LOCATION"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="2"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="LOCATION"/>
+            <fieldAttributes xsi:type="ddf:MinSize" number="1"/>
+            <fieldAttributes xsi:type="ddf:MaxSize" number="70"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/street.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="BRANCH_DETAIL"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="3"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="BRANCH_DETAIL"/>
+            <fieldAttributes xsi:type="ddf:MinSize" number="1"/>
+            <fieldAttributes xsi:type="ddf:MaxSize" number="30"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/BranchDetail.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="BRANCH_NAME"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="4"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="BRANCH_NAME"/>
+            <fieldAttributes xsi:type="ddf:MinSize" number="1"/>
+            <fieldAttributes xsi:type="ddf:MaxSize" number="80"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/FDICBankNames.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+        </dataInfo>
+        <sectionOptions xsi:type="scl:Key">
+          <key>
+            <key name="BRANCH_ID"/>
+          </key>
+        </sectionOptions>
+        <transformAction>
+          <keys xsi:type="scl:Key">
+            <key>
+              <key name="BRANCH_ID"/>
+            </key>
+          </keys>
+          <actionOptions xsi:type="scl:Duplicate"/>
+        </transformAction>
+      </transformData>
+    </blocks>
+    <blocks xsi:type="flow:TransformMappingBlock" name="BANK_TRANSACTION_TYPE.rcl" iriJob="BANK_TRANSACTION_TYPE.rcl">
+      <inputDatas name="BANK_TRANSACTION_TYPE.in" inputConnections="BANK_BRANCH.rcl_To_BANK_TRANSACTION_TYPE.rcl">
+        <dataInfo xsi:type="flow:FileDataInfo" name="BANK_TRANSACTION_TYPE.in" fileName="BANK_TRANSACTION_TYPE.in" type="">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="TRANSACTION_CODE"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Size" size="6"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="TRANSACTION_CODE"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;TRANSACTION_CODE.sed&quot;">
+                <setOption xsi:type="ddf:SetSelect" select="ALL"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="TRANSACTION_DESCRIPTION"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="2"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="TRANSACTION_DESCRIPTION"/>
+            <fieldAttributes xsi:type="ddf:MinSize" number="1"/>
+            <fieldAttributes xsi:type="ddf:MaxSize" number="60"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/TransactionDescription.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+        </dataInfo>
+        <sectionOptions xsi:type="ddf:Process" name="RANDOM"/>
+        <sectionOptions xsi:type="scl:Alias" alias="BANK_TRANSACTION_TYPE"/>
+        <sectionOptions xsi:type="scl:NullString" value=""/>
+        <sectionOptions xsi:type="scl:Incollect" value="15"/>
+      </inputDatas>
+      <outputDatas name="BANK.TRANSACTION_TYPE" outputConnections="BANK_TRANSACTION_TYPE.rcl_To_BANK_CUSTOMER.rcl">
+        <dataInfo xsi:type="flow:DBDataInfo" name="SQLServerDiffBANK.BANK.TRANSACTION_TYPE" DSN="SQLServerDiffBank" DTPName="SQLServerDiffBANK" providerName="SQL Server" database="SQL Server" hostName="192.168.3.95" port="1444" instanceName="support" userName="IRIDEMO" password="sorco78" schema="BANK" table="TRANSACTION_TYPE" delimiter="&#x9;">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="TRANSACTION_CODE"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="TRANSACTION_CODE"/>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="TRANSACTION_DESCRIPTION"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="2"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="TRANSACTION_DESCRIPTION"/>
+          </fields>
+          <constraints xsi:type="flow:PrimaryKey" name="TRANSACTION_TYPE_UC1">
+            <fields>TRANSACTION_CODE</fields>
+          </constraints>
+          <constraints xsi:type="flow:Unique" name="TRANSACTION_TYPE_IX1">
+            <fields>TRANSACTION_CODE</fields>
+          </constraints>
+          <indexes name="TRANSACTION_TYPE_UC1" isUnique="true">
+            <fields>TRANSACTION_CODE</fields>
+          </indexes>
+          <indexes name="TRANSACTION_TYPE_IX1" isUnique="true">
+            <fields>TRANSACTION_CODE</fields>
+          </indexes>
+        </dataInfo>
+        <sectionOptions xsi:type="ddf:Process" name="ODBC"/>
+        <sectionOptions xsi:type="scl:OutputMode"/>
+      </outputDatas>
+      <outputDatas name="TRANSACTION_CODE.sel">
+        <dataInfo xsi:type="flow:FileDataInfo" name="TRANSACTION_CODE.sel" fileName="W:/Gits/git-workbench-demos/WorkBenchDemo/RowGen-BankSQL/SavedScripts/new_batch/TRANSACTION_CODE.sel" type="">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="TRANSACTION_CODE"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="TRANSACTION_CODE"/>
+          </fields>
+        </dataInfo>
+        <sectionOptions xsi:type="ddf:Process"/>
+      </outputDatas>
+      <mappings name="TRANSACTION_CODE_To_TRANSACTION_CODE" sourceField="//@flowlets.0/@blocks.9/@inputDatas.0/@dataInfo/@fields.0" targetField="//@flowlets.0/@blocks.9/@transformData/@dataInfo/@fields.0"/>
+      <mappings name="TRANSACTION_DESCRIPTION_To_TRANSACTION_DESCRIPTION" sourceField="//@flowlets.0/@blocks.9/@inputDatas.0/@dataInfo/@fields.1" targetField="//@flowlets.0/@blocks.9/@transformData/@dataInfo/@fields.1"/>
+      <mappings name="TRANSACTION_CODE_To_TRANSACTION_CODE" sourceField="//@flowlets.0/@blocks.9/@transformData/@dataInfo/@fields.0" targetField="//@flowlets.0/@blocks.9/@outputDatas.0/@dataInfo/@fields.0"/>
+      <mappings name="TRANSACTION_DESCRIPTION_To_TRANSACTION_DESCRIPTION" sourceField="//@flowlets.0/@blocks.9/@transformData/@dataInfo/@fields.1" targetField="//@flowlets.0/@blocks.9/@outputDatas.0/@dataInfo/@fields.1"/>
+      <mappings name="TRANSACTION_CODE_To_TRANSACTION_CODE" sourceField="//@flowlets.0/@blocks.9/@transformData/@dataInfo/@fields.0" targetField="//@flowlets.0/@blocks.9/@outputDatas.1/@dataInfo/@fields.0"/>
+      <comments>
+        <comments>Generated with IRI Workbench - New Database Test Data Job</comments>
+        <comments xsi:nil="true"/>
+        <comments>Author: kevinr</comments>
+        <comments>Created: 2022-06-24 11:25:34</comments>
+        <comments xsi:nil="true"/>
+      </comments>
+      <transformData xsi:type="flow:SortAction" name="Sort">
+        <dataInfo xsi:type="flow:InternalDataInfo" name="Sort">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="TRANSACTION_CODE"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Size" size="6"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="TRANSACTION_CODE"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;TRANSACTION_CODE.sed&quot;">
+                <setOption xsi:type="ddf:SetSelect" select="ALL"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="TRANSACTION_DESCRIPTION"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="2"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="TRANSACTION_DESCRIPTION"/>
+            <fieldAttributes xsi:type="ddf:MinSize" number="1"/>
+            <fieldAttributes xsi:type="ddf:MaxSize" number="60"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/TransactionDescription.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+        </dataInfo>
+        <sectionOptions xsi:type="scl:Key">
+          <key>
+            <key name="TRANSACTION_CODE"/>
+          </key>
+        </sectionOptions>
+        <transformAction>
+          <keys xsi:type="scl:Key">
+            <key>
+              <key name="TRANSACTION_CODE"/>
+            </key>
+          </keys>
+          <actionOptions xsi:type="scl:Duplicate"/>
+        </transformAction>
+      </transformData>
+    </blocks>
+    <blocks xsi:type="flow:TransformMappingBlock" name="BANK_CUSTOMER.rcl" iriJob="BANK_CUSTOMER.rcl">
+      <inputDatas name="BANK_CUSTOMER.in" inputConnections="BANK_TRANSACTION_TYPE.rcl_To_BANK_CUSTOMER.rcl">
+        <dataInfo xsi:type="flow:FileDataInfo" name="BANK_CUSTOMER.in" fileName="BANK_CUSTOMER.in" type="">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="CUSTOMER_ID"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Size" size="13"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="CUSTOMER_ID"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;CUSTOMER_ID.sed&quot;">
+                <setOption xsi:type="ddf:SetSelect" select="ALL"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="FULL_NAME"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="2"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="FULL_NAME"/>
+            <fieldAttributes xsi:type="ddf:MinSize" number="1"/>
+            <fieldAttributes xsi:type="ddf:MaxSize" number="50"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/names_first_last.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="ADDRESS"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="3"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="ADDRESS"/>
+            <fieldAttributes xsi:type="ddf:MinSize" number="1"/>
+            <fieldAttributes xsi:type="ddf:MaxSize" number="60"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/FullAddress.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="PHONE_NUMBER"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="4"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="PHONE_NUMBER"/>
+            <fieldAttributes xsi:type="ddf:MinSize" number="1"/>
+            <fieldAttributes xsi:type="ddf:MaxSize" number="25"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/PhoneNumbers321.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="EMAIL"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="5"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="EMAIL"/>
+            <fieldAttributes xsi:type="ddf:MinSize" number="1"/>
+            <fieldAttributes xsi:type="ddf:MaxSize" number="40"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/Email.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="DATE_BECAME_MEMBER"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ISO_DATE"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="6"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="DATE_BECAME_MEMBER"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/MemberDate.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="BRANCH_ID"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Size" size="20"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="7"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="BRANCH_ID"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;BRANCH_ID.sel&quot;">
+                <setOption xsi:type="ddf:SetSelect">
+                  <row value="1"/>
+                </setOption>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="SSN"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="8"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="SSN"/>
+            <fieldAttributes xsi:type="ddf:MinSize" number="1"/>
+            <fieldAttributes xsi:type="ddf:MaxSize" number="11"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/FakeSSN.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+        </dataInfo>
+        <sectionOptions xsi:type="ddf:Process" name="RANDOM"/>
+        <sectionOptions xsi:type="scl:Alias" alias="BANK_CUSTOMER"/>
+        <sectionOptions xsi:type="scl:NullString" value=""/>
+        <sectionOptions xsi:type="scl:Incollect" value="15"/>
+      </inputDatas>
+      <outputDatas name="BANK.CUSTOMER" outputConnections="BANK_CUSTOMER.rcl_To_BANK_ACCOUNT.rcl">
+        <dataInfo xsi:type="flow:DBDataInfo" name="SQLServerDiffBANK.BANK.CUSTOMER" DSN="SQLServerDiffBank" DTPName="SQLServerDiffBANK" providerName="SQL Server" database="SQL Server" hostName="192.168.3.95" port="1444" instanceName="support" userName="IRIDEMO" password="sorco78" schema="BANK" table="CUSTOMER" delimiter="&#x9;">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="CUSTOMER_ID"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="CUSTOMER_ID"/>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="FULL_NAME"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="2"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="FULL_NAME"/>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="ADDRESS"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="3"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="ADDRESS"/>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="PHONE_NUMBER"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="4"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="PHONE_NUMBER"/>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="EMAIL"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="5"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="EMAIL"/>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="DATE_BECAME_MEMBER"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ISO_DATE"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="6"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="DATE_BECAME_MEMBER"/>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="BRANCH_ID"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="7"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="BRANCH_ID"/>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="SSN"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="8"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="SSN"/>
+          </fields>
+          <constraints xsi:type="flow:PrimaryKey" name="CUSTOMER_UC1">
+            <fields>CUSTOMER_ID</fields>
+          </constraints>
+          <constraints xsi:type="flow:ForeignKey" name="CUSTOMER_FK1" refTableName="BANK.BRANCH">
+            <fields>BRANCH_ID</fields>
+            <refFieldNames>BRANCH_ID</refFieldNames>
+          </constraints>
+          <constraints xsi:type="flow:Unique" name="CUSTOMER_IX1">
+            <fields>CUSTOMER_ID</fields>
+          </constraints>
+          <indexes name="CUSTOMER_UC1" isUnique="true">
+            <fields>CUSTOMER_ID</fields>
+          </indexes>
+          <indexes name="CUSTOMER_IX1" isUnique="true">
+            <fields>CUSTOMER_ID</fields>
+          </indexes>
+        </dataInfo>
+        <sectionOptions xsi:type="ddf:Process" name="ODBC"/>
+        <sectionOptions xsi:type="scl:OutputMode"/>
+      </outputDatas>
+      <outputDatas name="CUSTOMER_ID.sel">
+        <dataInfo xsi:type="flow:FileDataInfo" name="CUSTOMER_ID.sel" fileName="W:/Gits/git-workbench-demos/WorkBenchDemo/RowGen-BankSQL/SavedScripts/new_batch/CUSTOMER_ID.sel" type="">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="CUSTOMER_ID"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="CUSTOMER_ID"/>
+          </fields>
+        </dataInfo>
+        <sectionOptions xsi:type="ddf:Process"/>
+      </outputDatas>
+      <mappings name="CUSTOMER_ID_To_CUSTOMER_ID" sourceField="//@flowlets.0/@blocks.10/@inputDatas.0/@dataInfo/@fields.0" targetField="//@flowlets.0/@blocks.10/@transformData/@dataInfo/@fields.0"/>
+      <mappings name="FULL_NAME_To_FULL_NAME" sourceField="//@flowlets.0/@blocks.10/@inputDatas.0/@dataInfo/@fields.1" targetField="//@flowlets.0/@blocks.10/@transformData/@dataInfo/@fields.1"/>
+      <mappings name="ADDRESS_To_ADDRESS" sourceField="//@flowlets.0/@blocks.10/@inputDatas.0/@dataInfo/@fields.2" targetField="//@flowlets.0/@blocks.10/@transformData/@dataInfo/@fields.2"/>
+      <mappings name="PHONE_NUMBER_To_PHONE_NUMBER" sourceField="//@flowlets.0/@blocks.10/@inputDatas.0/@dataInfo/@fields.3" targetField="//@flowlets.0/@blocks.10/@transformData/@dataInfo/@fields.3"/>
+      <mappings name="EMAIL_To_EMAIL" sourceField="//@flowlets.0/@blocks.10/@inputDatas.0/@dataInfo/@fields.4" targetField="//@flowlets.0/@blocks.10/@transformData/@dataInfo/@fields.4"/>
+      <mappings name="DATE_BECAME_MEMBER_To_DATE_BECAME_MEMBER" sourceField="//@flowlets.0/@blocks.10/@inputDatas.0/@dataInfo/@fields.5" targetField="//@flowlets.0/@blocks.10/@transformData/@dataInfo/@fields.5"/>
+      <mappings name="BRANCH_ID_To_BRANCH_ID" sourceField="//@flowlets.0/@blocks.10/@inputDatas.0/@dataInfo/@fields.6" targetField="//@flowlets.0/@blocks.10/@transformData/@dataInfo/@fields.6"/>
+      <mappings name="SSN_To_SSN" sourceField="//@flowlets.0/@blocks.10/@inputDatas.0/@dataInfo/@fields.7" targetField="//@flowlets.0/@blocks.10/@transformData/@dataInfo/@fields.7"/>
+      <mappings name="CUSTOMER_ID_To_CUSTOMER_ID" sourceField="//@flowlets.0/@blocks.10/@transformData/@dataInfo/@fields.0" targetField="//@flowlets.0/@blocks.10/@outputDatas.0/@dataInfo/@fields.0"/>
+      <mappings name="FULL_NAME_To_FULL_NAME" sourceField="//@flowlets.0/@blocks.10/@transformData/@dataInfo/@fields.1" targetField="//@flowlets.0/@blocks.10/@outputDatas.0/@dataInfo/@fields.1"/>
+      <mappings name="ADDRESS_To_ADDRESS" sourceField="//@flowlets.0/@blocks.10/@transformData/@dataInfo/@fields.2" targetField="//@flowlets.0/@blocks.10/@outputDatas.0/@dataInfo/@fields.2"/>
+      <mappings name="PHONE_NUMBER_To_PHONE_NUMBER" sourceField="//@flowlets.0/@blocks.10/@transformData/@dataInfo/@fields.3" targetField="//@flowlets.0/@blocks.10/@outputDatas.0/@dataInfo/@fields.3"/>
+      <mappings name="EMAIL_To_EMAIL" sourceField="//@flowlets.0/@blocks.10/@transformData/@dataInfo/@fields.4" targetField="//@flowlets.0/@blocks.10/@outputDatas.0/@dataInfo/@fields.4"/>
+      <mappings name="DATE_BECAME_MEMBER_To_DATE_BECAME_MEMBER" sourceField="//@flowlets.0/@blocks.10/@transformData/@dataInfo/@fields.5" targetField="//@flowlets.0/@blocks.10/@outputDatas.0/@dataInfo/@fields.5"/>
+      <mappings name="BRANCH_ID_To_BRANCH_ID" sourceField="//@flowlets.0/@blocks.10/@transformData/@dataInfo/@fields.6" targetField="//@flowlets.0/@blocks.10/@outputDatas.0/@dataInfo/@fields.6"/>
+      <mappings name="SSN_To_SSN" sourceField="//@flowlets.0/@blocks.10/@transformData/@dataInfo/@fields.7" targetField="//@flowlets.0/@blocks.10/@outputDatas.0/@dataInfo/@fields.7"/>
+      <mappings name="CUSTOMER_ID_To_CUSTOMER_ID" sourceField="//@flowlets.0/@blocks.10/@transformData/@dataInfo/@fields.0" targetField="//@flowlets.0/@blocks.10/@outputDatas.1/@dataInfo/@fields.0"/>
+      <comments>
+        <comments>Generated with IRI Workbench - New Database Test Data Job</comments>
+        <comments xsi:nil="true"/>
+        <comments>Author: kevinr</comments>
+        <comments>Created: 2022-06-24 11:25:34</comments>
+        <comments xsi:nil="true"/>
+      </comments>
+      <transformData xsi:type="flow:SortAction" name="Sort">
+        <dataInfo xsi:type="flow:InternalDataInfo" name="Sort">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="CUSTOMER_ID"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Size" size="13"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="CUSTOMER_ID"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;CUSTOMER_ID.sed&quot;">
+                <setOption xsi:type="ddf:SetSelect" select="ALL"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="FULL_NAME"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="2"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="FULL_NAME"/>
+            <fieldAttributes xsi:type="ddf:MinSize" number="1"/>
+            <fieldAttributes xsi:type="ddf:MaxSize" number="50"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/names_first_last.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="ADDRESS"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="3"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="ADDRESS"/>
+            <fieldAttributes xsi:type="ddf:MinSize" number="1"/>
+            <fieldAttributes xsi:type="ddf:MaxSize" number="60"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/FullAddress.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="PHONE_NUMBER"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="4"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="PHONE_NUMBER"/>
+            <fieldAttributes xsi:type="ddf:MinSize" number="1"/>
+            <fieldAttributes xsi:type="ddf:MaxSize" number="25"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/PhoneNumbers321.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="EMAIL"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="5"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="EMAIL"/>
+            <fieldAttributes xsi:type="ddf:MinSize" number="1"/>
+            <fieldAttributes xsi:type="ddf:MaxSize" number="40"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/Email.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="DATE_BECAME_MEMBER"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ISO_DATE"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="6"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="DATE_BECAME_MEMBER"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/MemberDate.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="BRANCH_ID"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Size" size="20"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="7"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="BRANCH_ID"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;BRANCH_ID.sel&quot;">
+                <setOption xsi:type="ddf:SetSelect">
+                  <row value="1"/>
+                </setOption>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="SSN"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="8"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="SSN"/>
+            <fieldAttributes xsi:type="ddf:MinSize" number="1"/>
+            <fieldAttributes xsi:type="ddf:MaxSize" number="11"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/FakeSSN.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+        </dataInfo>
+        <sectionOptions xsi:type="scl:Key">
+          <key>
+            <key name="CUSTOMER_ID"/>
+          </key>
+        </sectionOptions>
+        <transformAction>
+          <keys xsi:type="scl:Key">
+            <key>
+              <key name="CUSTOMER_ID"/>
+            </key>
+          </keys>
+          <actionOptions xsi:type="scl:Duplicate"/>
+        </transformAction>
+      </transformData>
+    </blocks>
+    <blocks xsi:type="flow:TransformMappingBlock" name="BANK_ACCOUNT.rcl" iriJob="BANK_ACCOUNT.rcl">
+      <inputDatas name="BANK_ACCOUNT.in" inputConnections="BANK_CUSTOMER.rcl_To_BANK_ACCOUNT.rcl">
+        <dataInfo xsi:type="flow:FileDataInfo" name="BANK_ACCOUNT.in" fileName="BANK_ACCOUNT.in" type="">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="ACCOUNT_NUMBER"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Size" size="13"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="ACCOUNT_NUMBER"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;ACCOUNT_NUMBER.sed&quot;">
+                <setOption xsi:type="ddf:SetSelect" select="ALL"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="ACCOUNT_CODE"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="2"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="ACCOUNT_CODE"/>
+            <fieldAttributes xsi:type="ddf:MinSize" number="1"/>
+            <fieldAttributes xsi:type="ddf:MaxSize" number="12"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/AccountStatusCode.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="CODE_DESCRIPTION"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="3"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="CODE_DESCRIPTION"/>
+            <fieldAttributes xsi:type="ddf:MinSize" number="1"/>
+            <fieldAttributes xsi:type="ddf:MaxSize" number="90"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/AccountDiscription.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="ACCOUNT_TYPE"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="4"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="ACCOUNT_TYPE"/>
+            <fieldAttributes xsi:type="ddf:MinSize" number="1"/>
+            <fieldAttributes xsi:type="ddf:MaxSize" number="45"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/AccountType.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="CUSTOMER_ID"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Size" size="13"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="5"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="CUSTOMER_ID"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;CUSTOMER_ID.sel&quot;">
+                <setOption xsi:type="ddf:SetSelect">
+                  <row value="1"/>
+                </setOption>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="CURRENT_BALANCE"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="NUMERIC"/>
+            <fieldAttributes xsi:type="ddf:Precision" number="2"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="6"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="CURRENT_BALANCE"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/CurrentBalance.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+        </dataInfo>
+        <sectionOptions xsi:type="ddf:Process" name="RANDOM"/>
+        <sectionOptions xsi:type="scl:Alias" alias="BANK_ACCOUNT"/>
+        <sectionOptions xsi:type="scl:NullString" value=""/>
+        <sectionOptions xsi:type="scl:Incollect" value="15"/>
+      </inputDatas>
+      <outputDatas name="BANK.ACCOUNT" outputConnections="BANK_ACCOUNT.rcl_To_BANK_TRANSACTION.rcl">
+        <dataInfo xsi:type="flow:DBDataInfo" name="SQLServerDiffBANK.BANK.ACCOUNT" DSN="SQLServerDiffBank" DTPName="SQLServerDiffBANK" providerName="SQL Server" database="SQL Server" hostName="192.168.3.95" port="1444" instanceName="support" userName="IRIDEMO" password="sorco78" schema="BANK" table="ACCOUNT" delimiter="&#x9;">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="ACCOUNT_NUMBER"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="ACCOUNT_NUMBER"/>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="ACCOUNT_CODE"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="2"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="ACCOUNT_CODE"/>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="CODE_DESCRIPTION"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="3"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="CODE_DESCRIPTION"/>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="ACCOUNT_TYPE"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="4"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="ACCOUNT_TYPE"/>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="CUSTOMER_ID"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="5"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="CUSTOMER_ID"/>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="CURRENT_BALANCE"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="NUMERIC"/>
+            <fieldAttributes xsi:type="ddf:Precision" number="2"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="6"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="CURRENT_BALANCE"/>
+          </fields>
+          <constraints xsi:type="flow:PrimaryKey" name="ACCOUNT_UC1">
+            <fields>ACCOUNT_NUMBER</fields>
+          </constraints>
+          <constraints xsi:type="flow:ForeignKey" name="ACCOUNT_FK1" refTableName="BANK.CUSTOMER">
+            <fields>CUSTOMER_ID</fields>
+            <refFieldNames>CUSTOMER_ID</refFieldNames>
+          </constraints>
+          <constraints xsi:type="flow:Unique" name="ACCOUNT_IX1">
+            <fields>ACCOUNT_NUMBER</fields>
+          </constraints>
+          <indexes name="ACCOUNT_UC1" isUnique="true">
+            <fields>ACCOUNT_NUMBER</fields>
+          </indexes>
+          <indexes name="ACCOUNT_IX1" isUnique="true">
+            <fields>ACCOUNT_NUMBER</fields>
+          </indexes>
+        </dataInfo>
+        <sectionOptions xsi:type="ddf:Process" name="ODBC"/>
+        <sectionOptions xsi:type="scl:OutputMode"/>
+      </outputDatas>
+      <outputDatas name="ACCOUNT_NUMBER.sel">
+        <dataInfo xsi:type="flow:FileDataInfo" name="ACCOUNT_NUMBER.sel" fileName="W:/Gits/git-workbench-demos/WorkBenchDemo/RowGen-BankSQL/SavedScripts/new_batch/ACCOUNT_NUMBER.sel" type="">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="ACCOUNT_NUMBER"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="ACCOUNT_NUMBER"/>
+          </fields>
+        </dataInfo>
+        <sectionOptions xsi:type="ddf:Process"/>
+      </outputDatas>
+      <mappings name="ACCOUNT_NUMBER_To_ACCOUNT_NUMBER" sourceField="//@flowlets.0/@blocks.11/@inputDatas.0/@dataInfo/@fields.0" targetField="//@flowlets.0/@blocks.11/@transformData/@dataInfo/@fields.0"/>
+      <mappings name="ACCOUNT_CODE_To_ACCOUNT_CODE" sourceField="//@flowlets.0/@blocks.11/@inputDatas.0/@dataInfo/@fields.1" targetField="//@flowlets.0/@blocks.11/@transformData/@dataInfo/@fields.1"/>
+      <mappings name="CODE_DESCRIPTION_To_CODE_DESCRIPTION" sourceField="//@flowlets.0/@blocks.11/@inputDatas.0/@dataInfo/@fields.2" targetField="//@flowlets.0/@blocks.11/@transformData/@dataInfo/@fields.2"/>
+      <mappings name="ACCOUNT_TYPE_To_ACCOUNT_TYPE" sourceField="//@flowlets.0/@blocks.11/@inputDatas.0/@dataInfo/@fields.3" targetField="//@flowlets.0/@blocks.11/@transformData/@dataInfo/@fields.3"/>
+      <mappings name="CUSTOMER_ID_To_CUSTOMER_ID" sourceField="//@flowlets.0/@blocks.11/@inputDatas.0/@dataInfo/@fields.4" targetField="//@flowlets.0/@blocks.11/@transformData/@dataInfo/@fields.4"/>
+      <mappings name="CURRENT_BALANCE_To_CURRENT_BALANCE" sourceField="//@flowlets.0/@blocks.11/@inputDatas.0/@dataInfo/@fields.5" targetField="//@flowlets.0/@blocks.11/@transformData/@dataInfo/@fields.5"/>
+      <mappings name="ACCOUNT_NUMBER_To_ACCOUNT_NUMBER" sourceField="//@flowlets.0/@blocks.11/@transformData/@dataInfo/@fields.0" targetField="//@flowlets.0/@blocks.11/@outputDatas.0/@dataInfo/@fields.0"/>
+      <mappings name="ACCOUNT_CODE_To_ACCOUNT_CODE" sourceField="//@flowlets.0/@blocks.11/@transformData/@dataInfo/@fields.1" targetField="//@flowlets.0/@blocks.11/@outputDatas.0/@dataInfo/@fields.1"/>
+      <mappings name="CODE_DESCRIPTION_To_CODE_DESCRIPTION" sourceField="//@flowlets.0/@blocks.11/@transformData/@dataInfo/@fields.2" targetField="//@flowlets.0/@blocks.11/@outputDatas.0/@dataInfo/@fields.2"/>
+      <mappings name="ACCOUNT_TYPE_To_ACCOUNT_TYPE" sourceField="//@flowlets.0/@blocks.11/@transformData/@dataInfo/@fields.3" targetField="//@flowlets.0/@blocks.11/@outputDatas.0/@dataInfo/@fields.3"/>
+      <mappings name="CUSTOMER_ID_To_CUSTOMER_ID" sourceField="//@flowlets.0/@blocks.11/@transformData/@dataInfo/@fields.4" targetField="//@flowlets.0/@blocks.11/@outputDatas.0/@dataInfo/@fields.4"/>
+      <mappings name="CURRENT_BALANCE_To_CURRENT_BALANCE" sourceField="//@flowlets.0/@blocks.11/@transformData/@dataInfo/@fields.5" targetField="//@flowlets.0/@blocks.11/@outputDatas.0/@dataInfo/@fields.5"/>
+      <mappings name="ACCOUNT_NUMBER_To_ACCOUNT_NUMBER" sourceField="//@flowlets.0/@blocks.11/@transformData/@dataInfo/@fields.0" targetField="//@flowlets.0/@blocks.11/@outputDatas.1/@dataInfo/@fields.0"/>
+      <comments>
+        <comments>Generated with IRI Workbench - New Database Test Data Job</comments>
+        <comments xsi:nil="true"/>
+        <comments>Author: kevinr</comments>
+        <comments>Created: 2022-06-24 11:25:35</comments>
+        <comments xsi:nil="true"/>
+      </comments>
+      <transformData xsi:type="flow:SortAction" name="Sort">
+        <dataInfo xsi:type="flow:InternalDataInfo" name="Sort">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="ACCOUNT_NUMBER"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Size" size="13"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="ACCOUNT_NUMBER"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;ACCOUNT_NUMBER.sed&quot;">
+                <setOption xsi:type="ddf:SetSelect" select="ALL"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="ACCOUNT_CODE"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="2"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="ACCOUNT_CODE"/>
+            <fieldAttributes xsi:type="ddf:MinSize" number="1"/>
+            <fieldAttributes xsi:type="ddf:MaxSize" number="12"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/AccountStatusCode.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="CODE_DESCRIPTION"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="3"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="CODE_DESCRIPTION"/>
+            <fieldAttributes xsi:type="ddf:MinSize" number="1"/>
+            <fieldAttributes xsi:type="ddf:MaxSize" number="90"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/AccountDiscription.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="ACCOUNT_TYPE"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="4"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="ACCOUNT_TYPE"/>
+            <fieldAttributes xsi:type="ddf:MinSize" number="1"/>
+            <fieldAttributes xsi:type="ddf:MaxSize" number="45"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/AccountType.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="CUSTOMER_ID"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Size" size="13"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="5"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="CUSTOMER_ID"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;CUSTOMER_ID.sel&quot;">
+                <setOption xsi:type="ddf:SetSelect">
+                  <row value="1"/>
+                </setOption>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="CURRENT_BALANCE"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="NUMERIC"/>
+            <fieldAttributes xsi:type="ddf:Precision" number="2"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="6"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="CURRENT_BALANCE"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/CurrentBalance.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+        </dataInfo>
+        <sectionOptions xsi:type="scl:Key">
+          <key>
+            <key name="ACCOUNT_NUMBER"/>
+          </key>
+        </sectionOptions>
+        <transformAction>
+          <keys xsi:type="scl:Key">
+            <key>
+              <key name="ACCOUNT_NUMBER"/>
+            </key>
+          </keys>
+          <actionOptions xsi:type="scl:Duplicate"/>
+        </transformAction>
+      </transformData>
+    </blocks>
+    <blocks xsi:type="flow:TransformMappingBlock" name="BANK_TRANSACTION.rcl" iriJob="BANK_TRANSACTION.rcl">
+      <inputDatas name="BANK_TRANSACTION.in" inputConnections="BANK_ACCOUNT.rcl_To_BANK_TRANSACTION.rcl">
+        <dataInfo xsi:type="flow:FileDataInfo" name="BANK_TRANSACTION.in" fileName="BANK_TRANSACTION.in" type="">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="TRANSACTION_ID"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Size" size="14"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="TRANSACTION_ID"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;TRANSACTION_ID.sed&quot;">
+                <setOption xsi:type="ddf:SetSelect" select="ALL"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="ACCOUNT_NUMBER"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Size" size="13"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="2"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="ACCOUNT_NUMBER"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;ACCOUNT_NUMBER.sel&quot;">
+                <setOption xsi:type="ddf:SetSelect">
+                  <row value="1"/>
+                </setOption>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="TRANSACTION_CODE"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Size" size="6"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="3"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="TRANSACTION_CODE"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;TRANSACTION_CODE.sel&quot;">
+                <setOption xsi:type="ddf:SetSelect">
+                  <row value="1"/>
+                </setOption>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="TRANSACTION_DATE"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ISO_DATE"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="4"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="TRANSACTION_DATE"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/MemberDate.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="TRANSACTION_AMOUNT"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="NUMERIC"/>
+            <fieldAttributes xsi:type="ddf:Precision" number="2"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="5"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="TRANSACTION_AMOUNT"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/TransactionAmount.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+        </dataInfo>
+        <sectionOptions xsi:type="ddf:Process" name="RANDOM"/>
+        <sectionOptions xsi:type="scl:Alias" alias="BANK_TRANSACTION"/>
+        <sectionOptions xsi:type="scl:NullString" value=""/>
+        <sectionOptions xsi:type="scl:Incollect" value="15"/>
+      </inputDatas>
+      <outputDatas name="BANK.TRANSACTION" outputConnections="BANK_TRANSACTION.rcl_To_EnableFK_Multiple_Tables">
+        <dataInfo xsi:type="flow:DBDataInfo" name="SQLServerDiffBANK.BANK.TRANSACTION" DSN="SQLServerDiffBank" DTPName="SQLServerDiffBANK" providerName="SQL Server" database="SQL Server" hostName="192.168.3.95" port="1444" instanceName="support" userName="IRIDEMO" password="sorco78" schema="BANK" table="TRANSACTION" delimiter="&#x9;">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="TRANSACTION_ID"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="TRANSACTION_ID"/>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="ACCOUNT_NUMBER"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="2"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="ACCOUNT_NUMBER"/>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="TRANSACTION_CODE"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="3"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="TRANSACTION_CODE"/>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="TRANSACTION_DATE"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ISO_DATE"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="4"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="TRANSACTION_DATE"/>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="TRANSACTION_AMOUNT"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="NUMERIC"/>
+            <fieldAttributes xsi:type="ddf:Precision" number="2"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="5"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="TRANSACTION_AMOUNT"/>
+          </fields>
+          <constraints xsi:type="flow:PrimaryKey" name="TRANSACTION_UC1">
+            <fields>TRANSACTION_ID</fields>
+          </constraints>
+          <constraints xsi:type="flow:ForeignKey" name="TRANSACTION_FK1" refTableName="BANK.ACCOUNT">
+            <fields>ACCOUNT_NUMBER</fields>
+            <refFieldNames>ACCOUNT_NUMBER</refFieldNames>
+          </constraints>
+          <constraints xsi:type="flow:ForeignKey" name="TRANSACTION_FK2" refTableName="BANK.TRANSACTION_TYPE">
+            <fields>TRANSACTION_CODE</fields>
+            <refFieldNames>TRANSACTION_CODE</refFieldNames>
+          </constraints>
+          <indexes name="TRANSACTION_UC1" isUnique="true">
+            <fields>TRANSACTION_ID</fields>
+          </indexes>
+          <indexes name="TRANSACTION_IX1" isUnique="true">
+            <fields>TRANSACTION_ID</fields>
+          </indexes>
+        </dataInfo>
+        <sectionOptions xsi:type="ddf:Process" name="ODBC"/>
+        <sectionOptions xsi:type="scl:OutputMode"/>
+      </outputDatas>
+      <outputDatas name="TRANSACTION_ID.sel">
+        <dataInfo xsi:type="flow:FileDataInfo" name="TRANSACTION_ID.sel" fileName="W:/Gits/git-workbench-demos/WorkBenchDemo/RowGen-BankSQL/SavedScripts/new_batch/TRANSACTION_ID.sel" type="">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="TRANSACTION_ID"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="TRANSACTION_ID"/>
+          </fields>
+        </dataInfo>
+        <sectionOptions xsi:type="ddf:Process"/>
+      </outputDatas>
+      <mappings name="TRANSACTION_ID_To_TRANSACTION_ID" sourceField="//@flowlets.0/@blocks.12/@inputDatas.0/@dataInfo/@fields.0" targetField="//@flowlets.0/@blocks.12/@transformData/@dataInfo/@fields.0"/>
+      <mappings name="ACCOUNT_NUMBER_To_ACCOUNT_NUMBER" sourceField="//@flowlets.0/@blocks.12/@inputDatas.0/@dataInfo/@fields.1" targetField="//@flowlets.0/@blocks.12/@transformData/@dataInfo/@fields.1"/>
+      <mappings name="TRANSACTION_CODE_To_TRANSACTION_CODE" sourceField="//@flowlets.0/@blocks.12/@inputDatas.0/@dataInfo/@fields.2" targetField="//@flowlets.0/@blocks.12/@transformData/@dataInfo/@fields.2"/>
+      <mappings name="TRANSACTION_DATE_To_TRANSACTION_DATE" sourceField="//@flowlets.0/@blocks.12/@inputDatas.0/@dataInfo/@fields.3" targetField="//@flowlets.0/@blocks.12/@transformData/@dataInfo/@fields.3"/>
+      <mappings name="TRANSACTION_AMOUNT_To_TRANSACTION_AMOUNT" sourceField="//@flowlets.0/@blocks.12/@inputDatas.0/@dataInfo/@fields.4" targetField="//@flowlets.0/@blocks.12/@transformData/@dataInfo/@fields.4"/>
+      <mappings name="TRANSACTION_ID_To_TRANSACTION_ID" sourceField="//@flowlets.0/@blocks.12/@transformData/@dataInfo/@fields.0" targetField="//@flowlets.0/@blocks.12/@outputDatas.0/@dataInfo/@fields.0"/>
+      <mappings name="ACCOUNT_NUMBER_To_ACCOUNT_NUMBER" sourceField="//@flowlets.0/@blocks.12/@transformData/@dataInfo/@fields.1" targetField="//@flowlets.0/@blocks.12/@outputDatas.0/@dataInfo/@fields.1"/>
+      <mappings name="TRANSACTION_CODE_To_TRANSACTION_CODE" sourceField="//@flowlets.0/@blocks.12/@transformData/@dataInfo/@fields.2" targetField="//@flowlets.0/@blocks.12/@outputDatas.0/@dataInfo/@fields.2"/>
+      <mappings name="TRANSACTION_DATE_To_TRANSACTION_DATE" sourceField="//@flowlets.0/@blocks.12/@transformData/@dataInfo/@fields.3" targetField="//@flowlets.0/@blocks.12/@outputDatas.0/@dataInfo/@fields.3"/>
+      <mappings name="TRANSACTION_AMOUNT_To_TRANSACTION_AMOUNT" sourceField="//@flowlets.0/@blocks.12/@transformData/@dataInfo/@fields.4" targetField="//@flowlets.0/@blocks.12/@outputDatas.0/@dataInfo/@fields.4"/>
+      <mappings name="TRANSACTION_ID_To_TRANSACTION_ID" sourceField="//@flowlets.0/@blocks.12/@transformData/@dataInfo/@fields.0" targetField="//@flowlets.0/@blocks.12/@outputDatas.1/@dataInfo/@fields.0"/>
+      <comments>
+        <comments>Generated with IRI Workbench - New Database Test Data Job</comments>
+        <comments xsi:nil="true"/>
+        <comments>Author: kevinr</comments>
+        <comments>Created: 2022-06-24 11:25:36</comments>
+        <comments xsi:nil="true"/>
+      </comments>
+      <transformData xsi:type="flow:SortAction" name="Sort">
+        <dataInfo xsi:type="flow:InternalDataInfo" name="Sort">
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="TRANSACTION_ID"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Size" size="14"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="1"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="TRANSACTION_ID"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;TRANSACTION_ID.sed&quot;">
+                <setOption xsi:type="ddf:SetSelect" select="ALL"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="ACCOUNT_NUMBER"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Size" size="13"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="2"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="ACCOUNT_NUMBER"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;ACCOUNT_NUMBER.sel&quot;">
+                <setOption xsi:type="ddf:SetSelect">
+                  <row value="1"/>
+                </setOption>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="TRANSACTION_CODE"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ALPHA_DIGIT"/>
+            <fieldAttributes xsi:type="ddf:Size" size="6"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="3"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="TRANSACTION_CODE"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;TRANSACTION_CODE.sel&quot;">
+                <setOption xsi:type="ddf:SetSelect">
+                  <row value="1"/>
+                </setOption>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="TRANSACTION_DATE"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="ISO_DATE"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="4"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="TRANSACTION_DATE"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/MemberDate.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+          <fields xsi:type="scl:AdvancedField">
+            <fieldMathStatement>
+              <compoundExpression>
+                <relationalExpression>
+                  <lValue>
+                    <lValue>
+                      <lValue>
+                        <expr xsi:type="scl:Unary">
+                          <value xsi:type="ddf:FieldName" name="TRANSACTION_AMOUNT"/>
+                        </expr>
+                      </lValue>
+                    </lValue>
+                  </lValue>
+                </relationalExpression>
+              </compoundExpression>
+            </fieldMathStatement>
+            <fieldAttributes xsi:type="ddf:DataType" name="NUMERIC"/>
+            <fieldAttributes xsi:type="ddf:Precision" number="2"/>
+            <fieldAttributes xsi:type="ddf:Position" number1="5"/>
+            <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
+            <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="TRANSACTION_AMOUNT"/>
+            <fieldAttributes xsi:type="ddf:Set">
+              <value xsi:type="ddf:FileSet" fileName="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/TransactionAmount.set&quot;">
+                <setOption xsi:type="ddf:SetSelect"/>
+              </value>
+            </fieldAttributes>
+          </fields>
+        </dataInfo>
+        <sectionOptions xsi:type="scl:Key">
+          <key>
+            <key name="TRANSACTION_ID"/>
+          </key>
+        </sectionOptions>
+        <transformAction>
+          <keys xsi:type="scl:Key">
+            <key>
+              <key name="TRANSACTION_ID"/>
+            </key>
+          </keys>
+          <actionOptions xsi:type="scl:Duplicate"/>
+        </transformAction>
+      </transformData>
+    </blocks>
+    <blocks xsi:type="flow:MSSQLCommandExec" name="EnableFK_Multiple_Tables" inputConnections="BANK_TRANSACTION.rcl_To_EnableFK_Multiple_Tables" command="sqlcmd" statementFile="EnableFK_Multiple_Tables.sql" statementText="ALTER TABLE BANK.CUSTOMER WITH CHECK CHECK CONSTRAINT CUSTOMER_FK1&#xD;&#xA;GO&#xD;&#xA;ALTER TABLE BANK.TRANSACTION WITH CHECK CHECK CONSTRAINT TRANSACTION_FK1&#xD;&#xA;GO&#xD;&#xA;ALTER TABLE BANK.ACCOUNT WITH CHECK CHECK CONSTRAINT ACCOUNT_FK1&#xD;&#xA;GO&#xD;&#xA;ALTER TABLE BANK.TRANSACTION WITH CHECK CHECK CONSTRAINT TRANSACTION_FK2&#xD;&#xA;GO&#xD;&#xA;">
+      <dbDataInfo name="Multiple_Tables" DSN="SQLServerDiffBank" DTPName="SQLServerDiffBANK" providerName="SQL Server" database="SQL Server" hostName="192.168.3.95" port="1444" instanceName="support" userName="IRIDEMO" password="sorco78" delimiter="&#x9;"/>
+    </blocks>
+    <connections name="Start_To_DisableFK_Multiple_Tables" startBlock="//@flowlets.0/@blocks.0" endBlock="//@flowlets.0/@blocks.1"/>
+    <connections name="DisableFK_Multiple_Tables_To_BRANCH_ID_UNIQUE.rcl" startBlock="//@flowlets.0/@blocks.1" endBlock="//@flowlets.0/@blocks.2/@inputDatas.0"/>
+    <connections name="BRANCH_ID_UNIQUE.rcl_To_TRANSACTION_CODE_UNIQUE.rcl" startBlock="//@flowlets.0/@blocks.2/@outputDatas.0" endBlock="//@flowlets.0/@blocks.3/@inputDatas.0"/>
+    <connections name="TRANSACTION_CODE_UNIQUE.rcl_To_CUSTOMER_ID_UNIQUE.rcl" startBlock="//@flowlets.0/@blocks.3/@outputDatas.0" endBlock="//@flowlets.0/@blocks.4/@inputDatas.0"/>
+    <connections name="CUSTOMER_ID_UNIQUE.rcl_To_ACCOUNT_NUMBER_UNIQUE.rcl" startBlock="//@flowlets.0/@blocks.4/@outputDatas.0" endBlock="//@flowlets.0/@blocks.5/@inputDatas.0"/>
+    <connections name="ACCOUNT_NUMBER_UNIQUE.rcl_To_TRANSACTION_ID_UNIQUE.rcl" startBlock="//@flowlets.0/@blocks.5/@outputDatas.0" endBlock="//@flowlets.0/@blocks.6/@inputDatas.0"/>
+    <connections name="TRANSACTION_ID_UNIQUE.rcl_To_Wait-for-Sets" startBlock="//@flowlets.0/@blocks.6/@outputDatas.0" endBlock="//@flowlets.0/@blocks.7"/>
+    <connections name="Wait-for-Sets_To_BANK_BRANCH.rcl" startBlock="//@flowlets.0/@blocks.7" endBlock="//@flowlets.0/@blocks.8/@inputDatas.0"/>
+    <connections name="BANK_BRANCH.rcl_To_BANK_TRANSACTION_TYPE.rcl" startBlock="//@flowlets.0/@blocks.8/@outputDatas.0" endBlock="//@flowlets.0/@blocks.9/@inputDatas.0"/>
+    <connections name="BANK_TRANSACTION_TYPE.rcl_To_BANK_CUSTOMER.rcl" startBlock="//@flowlets.0/@blocks.9/@outputDatas.0" endBlock="//@flowlets.0/@blocks.10/@inputDatas.0"/>
+    <connections name="BANK_CUSTOMER.rcl_To_BANK_ACCOUNT.rcl" startBlock="//@flowlets.0/@blocks.10/@outputDatas.0" endBlock="//@flowlets.0/@blocks.11/@inputDatas.0"/>
+    <connections name="BANK_ACCOUNT.rcl_To_BANK_TRANSACTION.rcl" startBlock="//@flowlets.0/@blocks.11/@outputDatas.0" endBlock="//@flowlets.0/@blocks.12/@inputDatas.0"/>
+    <connections name="BANK_TRANSACTION.rcl_To_EnableFK_Multiple_Tables" startBlock="//@flowlets.0/@blocks.12/@outputDatas.0" endBlock="//@flowlets.0/@blocks.13"/>
+  </flowlets>
+  <Lineage>
+    <sourceTargetData href="new_batch.sourcetargetdata#/"/>
+  </Lineage>
+</flow:FlowBatch>
+

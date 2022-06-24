@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="ASCII"?>
+<sourcetargetdata:SourceTargetData xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rules="http://rules/1.0" xmlns:sourcetargetdata="http://sourcetargetdata/1.0" extractor="ODBC" loader="ODBC" sourceDSN="SQLServerDiffBank" sourceDTPName="SQLServerDiffBANK" separator="&#x9;" targetDSN="SQLServerDiffBank" targetDTPName="SQLServerDiffBANK" targetSchema="BANK" outputMode="CREATE" disableFKOnLoad="true" reenableFKOnPostLoad="true">
+  <tables>BANK.ACCOUNT</tables>
+  <tables>BANK.BRANCH</tables>
+  <tables>BANK.CUSTOMER</tables>
+  <tables>BANK.TRANSACTION</tables>
+  <tables>BANK.TRANSACTION_TYPE</tables>
+  <ruleMatchers name="BranchID" dataClassLibrary="W:/Workbench-Demo/WorkSpace2/RowGen-BankSQL">
+    <rule href="../../iriLibrary.rules#FieldSetRule"/>
+    <matcherDetails details=".*BRANCH_ID"/>
+  </ruleMatchers>
+  <ruleMatchers name="Location" dataClassLibrary="W:/Workbench-Demo/WorkSpace2/RowGen-BankSQL">
+    <rule href="../../iriLibrary.rules#FieldSetRule1"/>
+    <matcherDetails details=".*LOCATION"/>
+  </ruleMatchers>
+  <ruleMatchers name="BranchDetails" dataClassLibrary="W:/Workbench-Demo/WorkSpace2/RowGen-BankSQL">
+    <rule href="../../iriLibrary.rules#FieldSetRule2"/>
+    <matcherDetails details=".*BRANCH_DETAIL"/>
+  </ruleMatchers>
+  <ruleMatchers name="BranchName" dataClassLibrary="W:/Workbench-Demo/WorkSpace2/RowGen-BankSQL">
+    <rule href="../../iriLibrary.rules#FieldSetRule3"/>
+    <matcherDetails details=".*BRANCH_NAME"/>
+  </ruleMatchers>
+  <ruleMatchers name="CustomerID" dataClassLibrary="W:/Workbench-Demo/WorkSpace2/RowGen-BankSQL">
+    <rule href="../../iriLibrary.rules#FieldSetRule4"/>
+    <matcherDetails details=".*CUSTOMER_ID"/>
+  </ruleMatchers>
+  <ruleMatchers name="NAME" dataClassLibrary="W:/Workbench-Demo/WorkSpace2/RowGen-BankSQL">
+    <rule href="../../iriLibrary.rules#FieldSetRule5"/>
+    <matcherDetails details=".*FULL_NAME"/>
+  </ruleMatchers>
+  <ruleMatchers name="ADDRESS" dataClassLibrary="W:/Workbench-Demo/WorkSpace2/RowGen-BankSQL">
+    <rule href="../../iriLibrary.rules#FieldSetRule6"/>
+    <matcherDetails details=".*ADDRESS"/>
+  </ruleMatchers>
+  <ruleMatchers name="PHONE" dataClassLibrary="W:/Workbench-Demo/WorkSpace2/RowGen-BankSQL">
+    <rule href="../../iriLibrary.rules#FieldSetRule7"/>
+    <matcherDetails details=".*PHONE_NUMBER"/>
+  </ruleMatchers>
+  <ruleMatchers name="EMAIL" dataClassLibrary="W:/Workbench-Demo/WorkSpace2/RowGen-BankSQL">
+    <rule href="../../iriLibrary.rules#FieldSetRule8"/>
+    <matcherDetails details=".*EMAIL"/>
+  </ruleMatchers>
+  <ruleMatchers name="DATEMEMEMBER" dataClassLibrary="W:/Workbench-Demo/WorkSpace2/RowGen-BankSQL">
+    <rule href="../../iriLibrary.rules#FieldSetRule9"/>
+    <matcherDetails details=".*DATE_BECAME_MEMBER"/>
+  </ruleMatchers>
+  <ruleMatchers name="SSN" dataClassLibrary="W:/Workbench-Demo/WorkSpace2/RowGen-BankSQL">
+    <rule href="../../iriLibrary.rules#FieldSetRule10"/>
+    <matcherDetails details=".*SSN"/>
+  </ruleMatchers>
+  <ruleMatchers name="ACCOUNTNUM" dataClassLibrary="W:/Workbench-Demo/WorkSpace2/RowGen-BankSQL">
+    <rule href="../../iriLibrary.rules#FieldSetRule11"/>
+    <matcherDetails details=".*ACCOUNT_NUMBER"/>
+  </ruleMatchers>
+  <ruleMatchers name="ACCOUNTCODE" dataClassLibrary="W:/Workbench-Demo/WorkSpace2/RowGen-BankSQL">
+    <rule href="../../iriLibrary.rules#FieldSetRule12"/>
+    <matcherDetails details=".*ACCOUNT_CODE"/>
+  </ruleMatchers>
+  <ruleMatchers name="CODEDESC" dataClassLibrary="W:/Workbench-Demo/WorkSpace2/RowGen-BankSQL">
+    <rule href="../../iriLibrary.rules#FieldSetRule13"/>
+    <matcherDetails details=".*CODE_DESCRIPTION"/>
+  </ruleMatchers>
+  <ruleMatchers name="ACCOUNTTYPE" dataClassLibrary="W:/Workbench-Demo/WorkSpace2/RowGen-BankSQL">
+    <rule href="../../iriLibrary.rules#FieldSetRule14"/>
+    <matcherDetails details=".*ACCOUNT_TYPE"/>
+  </ruleMatchers>
+  <ruleMatchers name="CURRENTBALANCE" dataClassLibrary="W:/Workbench-Demo/WorkSpace2/RowGen-BankSQL">
+    <rule href="../../iriLibrary.rules#FieldSetRule15"/>
+    <matcherDetails details=".*CURRENT_BALANCE"/>
+  </ruleMatchers>
+  <ruleMatchers name="TRANSCODE" dataClassLibrary="W:/Workbench-Demo/WorkSpace2/RowGen-BankSQL">
+    <rule href="../../iriLibrary.rules#FieldSetRule16"/>
+    <matcherDetails details=".*TRANSACTION_CODE"/>
+  </ruleMatchers>
+  <ruleMatchers name="TRANSDESC" dataClassLibrary="W:/Workbench-Demo/WorkSpace2/RowGen-BankSQL">
+    <rule href="../../iriLibrary.rules#FieldSetRule17"/>
+    <matcherDetails details=".*TRANSACTION_DESCRIPTION"/>
+  </ruleMatchers>
+  <ruleMatchers name="TRANSDATE" dataClassLibrary="W:/Workbench-Demo/WorkSpace2/RowGen-BankSQL">
+    <rule href="../../iriLibrary.rules#FieldSetRule18"/>
+    <matcherDetails details=".*TRANSACTION_DATE"/>
+  </ruleMatchers>
+  <ruleMatchers name="TRANSAMOUNT" dataClassLibrary="W:/Workbench-Demo/WorkSpace2/RowGen-BankSQL">
+    <rule href="../../iriLibrary.rules#FieldSetRule19"/>
+    <matcherDetails details=".*TRANSACTION_AMOUNT"/>
+  </ruleMatchers>
+  <rules xsi:type="rules:FieldRule" name="FieldSetRule" editor="setFileWizard">
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/BranchID.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
+  </rules>
+  <rules xsi:type="rules:FieldRule" name="FieldSetRule1" editor="setFileWizard">
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/street.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
+  </rules>
+  <rules xsi:type="rules:FieldRule" name="FieldSetRule2" editor="setFileWizard">
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/BranchDetail.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
+  </rules>
+  <rules xsi:type="rules:FieldRule" name="FieldSetRule3" editor="setFileWizard">
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/FDICBankNames.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
+  </rules>
+  <rules xsi:type="rules:FieldRule" name="FieldSetRule4" editor="setFileWizard">
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/CustomerID.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
+  </rules>
+  <rules xsi:type="rules:FieldRule" name="FieldSetRule5" editor="setFileWizard">
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/names_first_last.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
+  </rules>
+  <rules xsi:type="rules:FieldRule" name="FieldSetRule6" editor="setFileWizard">
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/FullAddress.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
+  </rules>
+  <rules xsi:type="rules:FieldRule" name="FieldSetRule7" editor="setFileWizard">
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/PhoneNumbers321.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
+  </rules>
+  <rules xsi:type="rules:FieldRule" name="FieldSetRule8" editor="setFileWizard">
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/Email.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
+  </rules>
+  <rules xsi:type="rules:FieldRule" name="FieldSetRule9" editor="setFileWizard">
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/MemberDate.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
+  </rules>
+  <rules xsi:type="rules:FieldRule" name="FieldSetRule10" editor="setFileWizard">
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/FakeSSN.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
+  </rules>
+  <rules xsi:type="rules:FieldRule" name="FieldSetRule11" editor="setFileWizard">
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/AccountNumber.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
+  </rules>
+  <rules xsi:type="rules:FieldRule" name="FieldSetRule12" editor="setFileWizard">
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/AccountStatusCode.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
+  </rules>
+  <rules xsi:type="rules:FieldRule" name="FieldSetRule13" editor="setFileWizard">
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/AccountDiscription.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
+  </rules>
+  <rules xsi:type="rules:FieldRule" name="FieldSetRule14" editor="setFileWizard">
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/AccountType.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
+  </rules>
+  <rules xsi:type="rules:FieldRule" name="FieldSetRule15" editor="setFileWizard">
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/CurrentBalance.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
+  </rules>
+  <rules xsi:type="rules:FieldRule" name="FieldSetRule16" editor="setFileWizard">
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/TransactionCode.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
+  </rules>
+  <rules xsi:type="rules:FieldRule" name="FieldSetRule17" editor="setFileWizard">
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/TransactionDescription.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
+  </rules>
+  <rules xsi:type="rules:FieldRule" name="FieldSetRule18" editor="setFileWizard">
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/MemberDate.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
+  </rules>
+  <rules xsi:type="rules:FieldRule" name="FieldSetRule19" editor="setFileWizard">
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/TransactionAmount.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
+  </rules>
+</sourcetargetdata:SourceTargetData>
+

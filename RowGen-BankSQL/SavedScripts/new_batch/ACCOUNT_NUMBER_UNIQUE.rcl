@@ -1,0 +1,21 @@
+# Generated with IRI Workbench - New Database Test Data Job
+#
+ # Author: kevinr
+ # Created: 2022-06-24 11:25:41
+ #
+
+/INFILES=uniqueseedgeneration
+	/PROCESS=RANDOM
+	/ALIAS=uniqueseedgeneration
+	/INCOLLECT=30
+	/FIELD=(ACCOUNT_NUMBER, TYPE=ALPHA_DIGIT, POSITION=1, SEPARATOR="\t", ODEF="ACCOUNT_NUMBER", SET="W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/AccountNumber.set" SELECT=ANY)
+
+/SORT
+	/KEY=(ACCOUNT_NUMBER)
+	/NODUPLICATES
+
+/OUTFILE=W:/Gits/git-workbench-demos/WorkBenchDemo/RowGen-BankSQL/SavedScripts/new_batch/ACCOUNT_NUMBER.sed
+	/PROCESS=RECORD
+	/OUTCOLLECT=15
+	/FIELD=(ACCOUNT_NUMBER, TYPE=ALPHA_DIGIT, POSITION=1, SEPARATOR="\t", ODEF="ACCOUNT_NUMBER")
+

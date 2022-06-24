@@ -1,14 +1,14 @@
 # Generated with IRI Workbench - New Database Test Data Job
 #
  # Author: kevinr
- # Created: 2022-06-24 11:25:39
+ # Created: 2022-06-24 12:47:24
  #
 
 /INFILES=uniqueseedgeneration
 	/PROCESS=RANDOM
 	/ALIAS=uniqueseedgeneration
 	/INCOLLECT=30
-	/FIELD=(TRANSACTION_CODE, TYPE=ALPHA_DIGIT, POSITION=1, SEPARATOR="\t", ODEF="TRANSACTION_CODE", SET="W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/TransactionCode.set" SELECT=ANY)
+	/FIELD=(TRANSACTION_CODE, TYPE=ALPHA_DIGIT, POSITION=1, SEPARATOR="\t", ODEF="TRANSACTION_CODE", SET="W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/TransactionCode.set" SELECT=ALL)
 
 /SORT
 	/KEY=(TRANSACTION_CODE)

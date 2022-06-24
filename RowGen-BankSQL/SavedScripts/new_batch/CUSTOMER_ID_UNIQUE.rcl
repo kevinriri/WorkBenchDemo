@@ -1,14 +1,14 @@
 # Generated with IRI Workbench - New Database Test Data Job
 #
  # Author: kevinr
- # Created: 2022-06-24 11:25:40
+ # Created: 2022-06-24 12:47:25
  #
 
 /INFILES=uniqueseedgeneration
 	/PROCESS=RANDOM
 	/ALIAS=uniqueseedgeneration
 	/INCOLLECT=30
-	/FIELD=(CUSTOMER_ID, TYPE=ALPHA_DIGIT, POSITION=1, SEPARATOR="\t", ODEF="CUSTOMER_ID", SET="W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/CustomerID.set" SELECT=ANY)
+	/FIELD=(CUSTOMER_ID, TYPE=ALPHA_DIGIT, POSITION=1, SEPARATOR="\t", ODEF="CUSTOMER_ID", SET="W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/CustomerID.set" SELECT=ALL)
 
 /SORT
 	/KEY=(CUSTOMER_ID)

@@ -83,39 +83,39 @@
     </matchers>
   </catalogs>
   <rules xsi:type="rules:FieldRule" name="FieldSetRule" editor="setFileWizard">
-    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/BranchID.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/BranchID.set&quot; SELECT=ALL"/>
     <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
   </rules>
   <rules xsi:type="rules:FieldRule" name="FieldSetRule1" editor="setFileWizard">
-    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/street.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/street.set&quot; SELECT=ALL"/>
     <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
   </rules>
   <rules xsi:type="rules:FieldRule" name="FieldSetRule2" editor="setFileWizard">
-    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/BranchDetail.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/BranchDetail.set&quot; SELECT=ALL"/>
     <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
   </rules>
   <rules xsi:type="rules:FieldRule" name="FieldSetRule3" editor="setFileWizard">
-    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/FDICBankNames.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/FDICBankNames.set&quot; SELECT=ALL"/>
     <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
   </rules>
   <rules xsi:type="rules:FieldRule" name="FieldSetRule4" editor="setFileWizard">
-    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/CustomerID.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/CustomerID.set&quot; SELECT=ALL"/>
     <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
   </rules>
   <rules xsi:type="rules:FieldRule" name="FieldSetRule5" editor="setFileWizard">
-    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/names_first_last.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/names_first_last.set&quot; SELECT=ALL"/>
     <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
   </rules>
   <rules xsi:type="rules:FieldRule" name="FieldSetRule6" editor="setFileWizard">
-    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/FullAddress.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/FullAddress.set&quot; SELECT=ALL"/>
     <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
   </rules>
   <rules xsi:type="rules:FieldRule" name="FieldSetRule7" editor="setFileWizard">
-    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/PhoneNumbers321.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/PhoneNumbers321.set&quot; SELECT=ALL"/>
     <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
   </rules>
   <rules xsi:type="rules:FieldRule" name="FieldSetRule8" editor="setFileWizard">
-    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/Email.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/Email.set&quot; SELECT=ALL"/>
     <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
   </rules>
   <rules xsi:type="rules:FieldRule" name="FieldSetRule9" editor="setFileWizard">
@@ -123,35 +123,35 @@
     <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
   </rules>
   <rules xsi:type="rules:FieldRule" name="FieldSetRule10" editor="setFileWizard">
-    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/FakeSSN.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/FakeSSN.set&quot; SELECT=ALL"/>
     <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
   </rules>
   <rules xsi:type="rules:FieldRule" name="FieldSetRule11" editor="setFileWizard">
-    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/AccountNumber.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/AccountNumber.set&quot; SELECT=ALL"/>
     <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
   </rules>
   <rules xsi:type="rules:FieldRule" name="FieldSetRule12" editor="setFileWizard">
-    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/AccountStatusCode.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/AccountStatusCode.set&quot; SELECT=ALL"/>
     <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
   </rules>
   <rules xsi:type="rules:FieldRule" name="FieldSetRule13" editor="setFileWizard">
-    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/AccountDiscription.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/AccountDiscription.set&quot; SELECT=ALL"/>
     <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
   </rules>
   <rules xsi:type="rules:FieldRule" name="FieldSetRule14" editor="setFileWizard">
-    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/AccountType.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/AccountType.set&quot; SELECT=ALL"/>
     <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
   </rules>
   <rules xsi:type="rules:FieldRule" name="FieldSetRule15" editor="setFileWizard">
-    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/CurrentBalance.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/CurrentBalance.set&quot; SELECT=ALL"/>
     <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
   </rules>
   <rules xsi:type="rules:FieldRule" name="FieldSetRule16" editor="setFileWizard">
-    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/TransactionCode.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/TransactionCode.set&quot; SELECT=ALL"/>
     <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
   </rules>
   <rules xsi:type="rules:FieldRule" name="FieldSetRule17" editor="setFileWizard">
-    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/TransactionDescription.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/TransactionDescription.set&quot; SELECT=ALL"/>
     <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
   </rules>
   <rules xsi:type="rules:FieldRule" name="FieldSetRule18" editor="setFileWizard">
@@ -159,8 +159,7 @@
     <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
   </rules>
   <rules xsi:type="rules:FieldRule" name="FieldSetRule19" editor="setFileWizard">
-    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/TransactionAmount.set&quot; SELECT=ANY"/>
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/TransactionAmount.set&quot; SELECT=ALL"/>
     <properties fieldRulePropertyType="NAME" value="SET_${FIELDNAME}"/>
   </rules>
 </rules:RuleLibrary>
-

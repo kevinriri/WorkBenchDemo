@@ -1,22 +1,19 @@
 <?xml version="1.0" encoding="ASCII"?>
 <dataclass:DataClassLibrary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dataclass="http://dataclass/1.0" xmlns:ddf="http://www.iri.com/lang/ddf/Ddf" xmlns:flow="http://flow/1.0" xmlns:scl="http://www.iri.com/lang/scl/Scl">
   <dataClasses xsi:type="dataclass:DataClass" name="BRANCH_NAME" description="" nameMatcher="BRANCH_NAME">
-    <defaultRule href="iriLibrary.rules#changeBank"/>
     <matchers type="FILE" details="W:\Files-for-Demos\SetFiles\BankSetFiles\FDICBankNames.set"/>
   </dataClasses>
-  <dataClasses xsi:type="dataclass:DataClass" name="PHONE_US" description="Class for US Phone" nameMatcher="PHONE_US">
-    <defaultRule href="iriLibrary.rules#FieldEncryptionRule"/>
-    <matchers details="^(\+?1?([ .-]?)?)?(\(?([2-9]\d{2})\)?([ .-]?)?)([2-9]\d{2})([ .-]?)(\d{4})([ #eExXtT]*)(\d{2,6})?$"/>
+  <dataClasses xsi:type="dataclass:DataClass" name="FULL_NAME" description="Class for full names" nameMatcher="FULL_NAME">
+    <matchers type="FILE" details="W:/Workbench-Demo/sets/names/names_first_last.set"/>
+    <matchers type="FILE" details="W:/Workbench-Demo/sets/names/names_last_comma_first.set"/>
   </dataClasses>
   <dataClasses xsi:type="dataclass:DataClass" name="EMAIL" description="Class for email" nameMatcher="EMAIL">
-    <defaultRule href="iriLibrary.rules#FieldEncryptionRule"/>
     <matchers details="\b[\w._%+-]+@[\w.-]+\.[A-Za-z]{2,4}\b"/>
   </dataClasses>
   <dataClasses xsi:type="dataclass:DataClass" name="PIN_US" description="Class for US Social Security Number" nameMatcher="PIN_US">
-    <defaultRule href="iriLibrary.rules#FieldRedactionRule"/>
     <matchers details="\b(\d{3}[-]?\d{2}[-]?\d{4})\b"/>
   </dataClasses>
-  <dataInfos xsi:type="flow:DBDataInfo" name="DB2_Exploder_KR.KEVINR.BRANCH" DSN="DB2 Exploder KR " DTPName="DB2 Exploder KR" providerName="DB2 for Linux, UNIX, and Windows" database="DB2 UDB" hostName="exploder.iri.com" port="50000" instanceName="SAMPLE" userName="kevinr" password="Fla35kr8" schema="KEVINR" table="BRANCH" delimiter="&#x9;">
+  <dataInfos xsi:type="flow:DBDataInfo" name="DB2ExploderKR.KEVINR.BRANCH" DSN="DB2ExploderKR" DTPName="DB2ExploderKR" providerName="DB2 for Linux, UNIX, and Windows" database="DB2 UDB" hostName="exploder.iri.com" port="50000" instanceName="SAMPLE" userName="kevinr" password="Fla35kr8" schema="KEVINR" table="BRANCH" delimiter="&#x9;">
     <fields xsi:type="scl:AdvancedField">
       <fieldMathStatement>
         <compoundExpression>
@@ -108,7 +105,7 @@
       <fields>BRANCH_ID</fields>
     </indexes>
   </dataInfos>
-  <dataInfos xsi:type="flow:DBDataInfo" name="DB2_Exploder_KR.KEVINR.CUSTOMER" DSN="DB2 Exploder KR " DTPName="DB2 Exploder KR" providerName="DB2 for Linux, UNIX, and Windows" database="DB2 UDB" hostName="exploder.iri.com" port="50000" instanceName="SAMPLE" userName="kevinr" password="Fla35kr8" schema="KEVINR" table="CUSTOMER" delimiter="&#x9;">
+  <dataInfos xsi:type="flow:DBDataInfo" name="DB2ExploderKR.KEVINR.CUSTOMER" DSN="DB2ExploderKR" DTPName="DB2ExploderKR" providerName="DB2 for Linux, UNIX, and Windows" database="DB2 UDB" hostName="exploder.iri.com" port="50000" instanceName="SAMPLE" userName="kevinr" password="Fla35kr8" schema="KEVINR" table="CUSTOMER" delimiter="&#x9;">
     <fields xsi:type="scl:AdvancedField">
       <fieldMathStatement>
         <compoundExpression>
@@ -288,205 +285,9 @@
       <fields>CUSTOMER_ID</fields>
     </indexes>
   </dataInfos>
-  <dataInfos xsi:type="flow:DBDataInfo" name="Oracle_Overflow_Roldos.ROLDOS.CUSTOMER" DSN="Oracle Overflow ROLDOS" DTPName="Oracle Overflow Roldos" providerName="Oracle" database="Oracle" hostName="overflow" port="1521" instanceName="ORCL" userName="ROLDOS" password="sorco78" schema="ROLDOS" table="CUSTOMER" delimiter="&#x9;">
-    <fields xsi:type="scl:AdvancedField">
-      <fieldMathStatement>
-        <compoundExpression>
-          <relationalExpression>
-            <lValue>
-              <lValue>
-                <lValue>
-                  <expr xsi:type="scl:Unary">
-                    <value xsi:type="ddf:FieldName" name="CUSTOMER_ID"/>
-                  </expr>
-                </lValue>
-              </lValue>
-            </lValue>
-          </relationalExpression>
-        </compoundExpression>
-      </fieldMathStatement>
-      <fieldAttributes xsi:type="ddf:DataType" name="ASCII"/>
-      <fieldAttributes xsi:type="ddf:Position" number1="1"/>
-      <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
-      <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="CUSTOMER_ID"/>
-    </fields>
-    <fields xsi:type="scl:AdvancedField">
-      <fieldMathStatement>
-        <compoundExpression>
-          <relationalExpression>
-            <lValue>
-              <lValue>
-                <lValue>
-                  <expr xsi:type="scl:Unary">
-                    <value xsi:type="ddf:FieldName" name="NAME"/>
-                  </expr>
-                </lValue>
-              </lValue>
-            </lValue>
-          </relationalExpression>
-        </compoundExpression>
-      </fieldMathStatement>
-      <fieldAttributes xsi:type="ddf:DataType" name="ASCII"/>
-      <fieldAttributes xsi:type="ddf:Position" number1="2"/>
-      <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
-      <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="NAME"/>
-    </fields>
-    <fields xsi:type="scl:AdvancedField">
-      <fieldMathStatement>
-        <compoundExpression>
-          <relationalExpression>
-            <lValue>
-              <lValue>
-                <lValue>
-                  <expr xsi:type="scl:Unary">
-                    <value xsi:type="ddf:FieldName" name="ADDRESS"/>
-                  </expr>
-                </lValue>
-              </lValue>
-            </lValue>
-          </relationalExpression>
-        </compoundExpression>
-      </fieldMathStatement>
-      <fieldAttributes xsi:type="ddf:DataType" name="ASCII"/>
-      <fieldAttributes xsi:type="ddf:Position" number1="3"/>
-      <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
-      <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="ADDRESS"/>
-    </fields>
-    <fields xsi:type="scl:AdvancedField">
-      <fieldMathStatement>
-        <compoundExpression>
-          <relationalExpression>
-            <lValue>
-              <lValue>
-                <lValue>
-                  <expr xsi:type="scl:Unary">
-                    <value xsi:type="ddf:FieldName" name="PHONE_NUMBER"/>
-                  </expr>
-                </lValue>
-              </lValue>
-            </lValue>
-          </relationalExpression>
-        </compoundExpression>
-      </fieldMathStatement>
-      <fieldAttributes xsi:type="ddf:DataType" name="ASCII"/>
-      <fieldAttributes xsi:type="ddf:Position" number1="4"/>
-      <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
-      <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="PHONE_NUMBER"/>
-    </fields>
-    <fields xsi:type="scl:AdvancedField">
-      <fieldMathStatement>
-        <compoundExpression>
-          <relationalExpression>
-            <lValue>
-              <lValue>
-                <lValue>
-                  <expr xsi:type="scl:Unary">
-                    <value xsi:type="ddf:FieldName" name="EMAIL"/>
-                  </expr>
-                </lValue>
-              </lValue>
-            </lValue>
-          </relationalExpression>
-        </compoundExpression>
-      </fieldMathStatement>
-      <fieldAttributes xsi:type="ddf:DataType" name="ASCII"/>
-      <fieldAttributes xsi:type="ddf:Position" number1="5"/>
-      <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
-      <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="EMAIL"/>
-    </fields>
-    <fields xsi:type="scl:AdvancedField">
-      <fieldMathStatement>
-        <compoundExpression>
-          <relationalExpression>
-            <lValue>
-              <lValue>
-                <lValue>
-                  <expr xsi:type="scl:Unary">
-                    <value xsi:type="ddf:FieldName" name="DATE_BECAME_MEMBER"/>
-                  </expr>
-                </lValue>
-              </lValue>
-            </lValue>
-          </relationalExpression>
-        </compoundExpression>
-      </fieldMathStatement>
-      <fieldAttributes xsi:type="ddf:DataType" name="ISO_DATE"/>
-      <fieldAttributes xsi:type="ddf:Position" number1="6"/>
-      <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
-      <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="DATE_BECAME_MEMBER"/>
-    </fields>
-    <fields xsi:type="scl:AdvancedField">
-      <fieldMathStatement>
-        <compoundExpression>
-          <relationalExpression>
-            <lValue>
-              <lValue>
-                <lValue>
-                  <expr xsi:type="scl:Unary">
-                    <value xsi:type="ddf:FieldName" name="BRANCH_ID"/>
-                  </expr>
-                </lValue>
-              </lValue>
-            </lValue>
-          </relationalExpression>
-        </compoundExpression>
-      </fieldMathStatement>
-      <fieldAttributes xsi:type="ddf:DataType" name="ASCII"/>
-      <fieldAttributes xsi:type="ddf:Position" number1="7"/>
-      <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
-      <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="BRANCH_ID"/>
-    </fields>
-    <fields xsi:type="scl:AdvancedField">
-      <fieldMathStatement>
-        <compoundExpression>
-          <relationalExpression>
-            <lValue>
-              <lValue>
-                <lValue>
-                  <expr xsi:type="scl:Unary">
-                    <value xsi:type="ddf:FieldName" name="SSN"/>
-                  </expr>
-                </lValue>
-              </lValue>
-            </lValue>
-          </relationalExpression>
-        </compoundExpression>
-      </fieldMathStatement>
-      <fieldAttributes xsi:type="ddf:DataType" name="ASCII"/>
-      <fieldAttributes xsi:type="ddf:Position" number1="8"/>
-      <fieldAttributes xsi:type="ddf:Separator" sepValue="&#x9;"/>
-      <fieldAttributes xsi:type="ddf:LocationDef" defType="ODEF" string="SSN"/>
-    </fields>
-    <constraints xsi:type="flow:PrimaryKey" name="SYS_C00217801">
-      <fields>CUSTOMER_ID</fields>
-    </constraints>
-    <constraints xsi:type="flow:ForeignKey" name="SYS_C00217802" refTableName="ROLDOS.BRANCH">
-      <fields>BRANCH_ID</fields>
-      <refFieldNames>BRANCH_ID</refFieldNames>
-    </constraints>
-    <indexes name="SYS_C00217801" isUnique="true">
-      <fields>CUSTOMER_ID</fields>
-    </indexes>
-  </dataInfos>
-  <dataClassMap source="//@dataInfos.0/@fields.3" dataClass="BRANCH_NAME" matching="name">
-    <rule href="iriLibrary.rules#changeBank"/>
-  </dataClassMap>
-  <dataClassMap source="//@dataInfos.1/@fields.3" dataClass="PHONE_US" matching="90.0">
-    <rule href="iriLibrary.rules#FieldEncryptionRule"/>
-  </dataClassMap>
-  <dataClassMap source="//@dataInfos.1/@fields.4" dataClass="EMAIL" matching="name">
-    <rule href="iriLibrary.rules#FieldEncryptionRule"/>
-  </dataClassMap>
-  <dataClassMap source="//@dataInfos.1/@fields.7" dataClass="PIN_US" matching="100.0">
-    <rule href="iriLibrary.rules#FieldRedactionRule"/>
-  </dataClassMap>
-  <dataClassMap source="//@dataInfos.2/@fields.3" dataClass="PHONE_US" matching="91.0">
-    <rule href="iriLibrary.rules#FieldEncryptionRule"/>
-  </dataClassMap>
-  <dataClassMap source="//@dataInfos.2/@fields.4" dataClass="EMAIL" matching="name">
-    <rule href="iriLibrary.rules#FieldEncryptionRule"/>
-  </dataClassMap>
-  <dataClassMap source="//@dataInfos.2/@fields.7" dataClass="PIN_US" matching="100.0">
-    <rule href="iriLibrary.rules#FieldRedactionRule"/>
-  </dataClassMap>
+  <dataClassMap source="//@dataInfos.0/@fields.3" dataClass="BRANCH_NAME" matching="name"/>
+  <dataClassMap source="//@dataInfos.1/@fields.1" dataClass="FULL_NAME" matching="name"/>
+  <dataClassMap source="//@dataInfos.1/@fields.4" dataClass="EMAIL" matching="name"/>
+  <dataClassMap source="//@dataInfos.1/@fields.7" dataClass="PIN_US" matching="100.0"/>
 </dataclass:DataClassLibrary>
+

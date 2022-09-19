@@ -1,10 +1,10 @@
 # Generated with IRI Workbench - New Database Test Data Job
 #
  # Author: kevinr
- # Created: 2022-06-24 12:47:26
+ # Created: 2022-09-19 09:40:08
  #
 
-/INFILES=uniqueseedgeneration
+/INFILE=uniqueseedgeneration
 	/PROCESS=RANDOM
 	/ALIAS=uniqueseedgeneration
 	/INCOLLECT=30

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="ASCII"?>
-<sourcetargetdata:SourceTargetData xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rules="http://rules/1.0" xmlns:sourcetargetdata="http://sourcetargetdata/1.0" extractor="ODBC" loader="ODBC" sourceDSN="SQLServerDiffBank" sourceDTPName="SQLServerDiffBANK" separator="&#x9;" targetDSN="SQLServerDiffBank" targetDTPName="SQLServerDiffBANK" targetSchema="BANK" disableFKOnLoad="true" reenableFKOnPostLoad="true">
+<sourcetargetdata:SourceTargetData xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rules="http://rules/1.0" xmlns:sourcetargetdata="http://sourcetargetdata/1.0" extractor="ODBC" loader="ODBC" sourceDSN="SQLServerDiffBank" sourceDTPName="SQLServerDiffBANK" separator="&#x9;" targetDSN="SQLServerDiffBank" targetDTPName="SQLServerDiffBANK" targetSchema="BANK" outputMode="CREATE" disableFKOnLoad="true" reenableFKOnPostLoad="true">
   <tables>BANK.ACCOUNT</tables>
   <tables>BANK.BRANCH</tables>
   <tables>BANK.CUSTOMER</tables>
-  <tables>BANK.TRANSACTION</tables>
-  <tables>BANK.TRANSACTION_TYPE</tables>
+  <tables>BANK.TRXN</tables>
+  <tables>BANK.TRXN_TYPE</tables>
   <ruleMatchers name="BranchID" dataClassLibrary="W:/Workbench-Demo/WorkSpace2/RowGen-BankSQL">
     <rule href="../../iriLibrary.rules#FieldSetRule"/>
     <matcherDetails details=".*BRANCH_ID"/>
@@ -71,19 +71,19 @@
   </ruleMatchers>
   <ruleMatchers name="TRANSCODE" dataClassLibrary="W:/Workbench-Demo/WorkSpace2/RowGen-BankSQL">
     <rule href="../../iriLibrary.rules#FieldSetRule16"/>
-    <matcherDetails details=".*TRANSACTION_CODE"/>
+    <matcherDetails details=".*TRXN_CODE"/>
   </ruleMatchers>
   <ruleMatchers name="TRANSDESC" dataClassLibrary="W:/Workbench-Demo/WorkSpace2/RowGen-BankSQL">
     <rule href="../../iriLibrary.rules#FieldSetRule17"/>
-    <matcherDetails details=".*TRANSACTION_DESCRIPTION"/>
+    <matcherDetails details=".*TRXN_DESCRIPTION"/>
   </ruleMatchers>
   <ruleMatchers name="TRANSDATE" dataClassLibrary="W:/Workbench-Demo/WorkSpace2/RowGen-BankSQL">
     <rule href="../../iriLibrary.rules#FieldSetRule18"/>
-    <matcherDetails details=".*TRANSACTION_DATE"/>
+    <matcherDetails details=".*TRXN_DATE"/>
   </ruleMatchers>
   <ruleMatchers name="TRANSAMOUNT" dataClassLibrary="W:/Workbench-Demo/WorkSpace2/RowGen-BankSQL">
     <rule href="../../iriLibrary.rules#FieldSetRule19"/>
-    <matcherDetails details=".*TRANSACTION_AMOUNT"/>
+    <matcherDetails details=".*TRXN_AMOUNT"/>
   </ruleMatchers>
   <rules xsi:type="rules:FieldRule" name="FieldSetRule" editor="setFileWizard">
     <properties fieldRulePropertyType="SET" value="&quot;W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/BranchID.set&quot; SELECT=ALL"/>

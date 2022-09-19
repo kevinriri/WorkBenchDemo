@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="ASCII"?>
 <rules:RuleLibrary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rules="http://rules/1.0">
   <catalogs name="NewDatabaseTestDataJob">
-    <matchers name="BranchID" dataClassLibrary="W:/Workbench-Demo/WorkSpace2/RowGen-BankSQL">
-      <rule href="#FieldSetRule"/>
+    <matchers name="BranchID" rule="FieldSetRule" dataClassLibrary="W:/Workbench-Demo/WorkSpace2/RowGen-BankSQL">
       <matcherDetails details=".*BRANCH_ID"/>
     </matchers>
     <matchers name="Location" dataClassLibrary="W:/Workbench-Demo/WorkSpace2/RowGen-BankSQL">
@@ -67,19 +66,19 @@
     </matchers>
     <matchers name="TRANSCODE" dataClassLibrary="W:/Workbench-Demo/WorkSpace2/RowGen-BankSQL">
       <rule href="#FieldSetRule16"/>
-      <matcherDetails details=".*TRANSACTION_CODE"/>
+      <matcherDetails details=".*TRXN_CODE"/>
     </matchers>
     <matchers name="TRANSDESC" dataClassLibrary="W:/Workbench-Demo/WorkSpace2/RowGen-BankSQL">
       <rule href="#FieldSetRule17"/>
-      <matcherDetails details=".*TRANSACTION_DESCRIPTION"/>
+      <matcherDetails details=".*TRXN_DESCRIPTION"/>
     </matchers>
     <matchers name="TRANSDATE" dataClassLibrary="W:/Workbench-Demo/WorkSpace2/RowGen-BankSQL">
       <rule href="#FieldSetRule18"/>
-      <matcherDetails details=".*TRANSACTION_DATE"/>
+      <matcherDetails details=".*TRXN_DATE"/>
     </matchers>
     <matchers name="TRANSAMOUNT" dataClassLibrary="W:/Workbench-Demo/WorkSpace2/RowGen-BankSQL">
       <rule href="#FieldSetRule19"/>
-      <matcherDetails details=".*TRANSACTION_AMOUNT"/>
+      <matcherDetails details=".*TRXN_AMOUNT"/>
     </matchers>
   </catalogs>
   <rules xsi:type="rules:FieldRule" name="FieldSetRule" editor="setFileWizard">

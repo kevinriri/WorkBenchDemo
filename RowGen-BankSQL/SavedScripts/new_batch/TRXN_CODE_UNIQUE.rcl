@@ -1,0 +1,21 @@
+# Generated with IRI Workbench - New Database Test Data Job
+#
+ # Author: kevinr
+ # Created: 2022-09-19 09:40:05
+ #
+
+/INFILE=uniqueseedgeneration
+	/PROCESS=RANDOM
+	/ALIAS=uniqueseedgeneration
+	/INCOLLECT=30
+	/FIELD=(TRXN_CODE, TYPE=ALPHA_DIGIT, POSITION=1, SEPARATOR="\t", ODEF="TRXN_CODE", SET="W:/Gits/git-workbench-demos/WorkBenchDemo/SetFIles/BankSet/TransactionCode.set" SELECT=ALL)
+
+/SORT
+	/KEY=(TRXN_CODE)
+	/NODUPLICATES
+
+/OUTFILE=W:/Gits/git-workbench-demos/WorkBenchDemo/RowGen-BankSQL/SavedScripts/new_batch/TRXN_CODE.sed
+	/PROCESS=RECORD
+	/OUTCOLLECT=15
+	/FIELD=(TRXN_CODE, TYPE=ALPHA_DIGIT, POSITION=1, SEPARATOR="\t", ODEF="TRXN_CODE")
+

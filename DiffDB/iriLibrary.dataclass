@@ -13,6 +13,9 @@
   <dataClasses xsi:type="dataclass:DataClass" name="PIN_US" description="Class for US Social Security Number" nameMatcher="PIN_US">
     <matchers details="\b(\d{3}[-]?\d{2}[-]?\d{4})\b"/>
   </dataClasses>
+  <dataClasses xsi:type="dataclass:DataClass" name="PHONE_US" description="Class for US Phone" nameMatcher="PHONE_US">
+    <matchers details="^(\+?1?([ .-]?)?)?(\(?([2-9]\d{2})\)?([ .-]?)?)([2-9]\d{2})([ .-]?)(\d{4})([ #eExXtT]*)(\d{2,6})?$"/>
+  </dataClasses>
   <dataInfos xsi:type="flow:DBDataInfo" name="DB2ExploderKR.KEVINR.BRANCH" DSN="DB2ExploderKR" DTPName="DB2ExploderKR" providerName="DB2 for Linux, UNIX, and Windows" database="DB2 UDB" hostName="exploder.iri.com" port="50000" instanceName="SAMPLE" userName="kevinr" password="Fla35kr8" schema="KEVINR" table="BRANCH" delimiter="&#x9;">
     <fields xsi:type="scl:AdvancedField">
       <fieldMathStatement>
@@ -289,5 +292,5 @@
   <dataClassMap source="//@dataInfos.1/@fields.1" dataClass="FULL_NAME" matching="name"/>
   <dataClassMap source="//@dataInfos.1/@fields.4" dataClass="EMAIL" matching="name"/>
   <dataClassMap source="//@dataInfos.1/@fields.7" dataClass="PIN_US" matching="100.0"/>
+  <dataClassMap source="//@dataInfos.1/@fields.3" dataClass="PHONE_US" matching="20.0"/>
 </dataclass:DataClassLibrary>
-

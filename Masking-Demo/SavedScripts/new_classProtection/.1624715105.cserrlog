@@ -1,0 +1,38 @@
+CoSort error log started: 2023-02-17 14:26:00
+
+CoSort 10.5.1 D105220317-1540 x86_32 #99999.9999
+Filename: C:\IRI\cosort105\etc\cosort.rc
+	MONITOR_LEVEL            1
+	PRESERVE_ERROR_LOG       ON
+Initialization started... Initialization done
+Command: /SPECIFICATION=SQLServerDiffIRI_IRI_Dim_Customer.scl 
+Loaded Module: libcsodbc, Id: d1884e7a087c3765768d466a2f3bdc755f34601b 
+Loading Modules from C:\IRI\cosort105
+Loading Modules from C:\IRI\cosort105
+Loaded Module: libcsdates, Id: b7b9334d7e533bef4951516fcd2ebabd7d41dcd8 
+ODBC Driver reported the following diagnostics: SQLDriverConnect
+01000:[Microsoft][ODBC SQL Server Driver][SQL Server]Changed database context to 'support'.
+01000:[Microsoft][ODBC SQL Server Driver][SQL Server]Changed language setting to us_english.
+SQL DBMS Name: Microsoft SQL Server
+SQL DBMS Version: 15.00.2080
+SQL Driver Name: SQLSRV32.DLL
+SQL Driver Version: 10.00.19041
+[ODBC][Microsoft SQL Server] auto commit mode = 1
+[ODBC][Microsoft SQL Server] parameter array size = 1024
+ODBC Driver reported the following diagnostics: SQLDriverConnect
+01000:[Microsoft][ODBC SQL Server Driver][SQL Server]Changed database context to 'support'.
+01000:[Microsoft][ODBC SQL Server Driver][SQL Server]Changed language setting to us_english.
+SQL DBMS Name: Microsoft SQL Server
+SQL DBMS Version: 15.00.2080
+SQL Driver Name: SQLSRV32.DLL
+SQL Driver Version: 10.00.19041
+[ODBC][Microsoft SQL Server] auto commit mode = 1
+[ODBC][Microsoft SQL Server] parameter array size = 1024
+Buffers cleanup started... Buffers cleanup done
+
+Blocksize  Memorysize  ExtMaxMemory  RecsInMemory  Buffers    LWF
+    600kb       160mb          40mb         512kb        2      0
+
+Resources cleanup started... Resources cleanup done
+
+CoSort error log done: 2023-02-17 14:26:01

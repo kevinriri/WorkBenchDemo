@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ASCII"?>
+<rules:RuleLibrary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:rules="http://rules/1.0">
+  <rules xsi:type="rules:FieldRule" name="addWholeNumber" editor="assignmentWizard">
+    <properties fieldRulePropertyType="EXPRESSION" value="${FIELDNAME} +1254"/>
+    <properties fieldRulePropertyType="NAME" value="EXPRESSION_${FIELDNAME}"/>
+  </rules>
+  <rules xsi:type="rules:FieldRule" name="changeMiddle" editor="pseudoWizard">
+    <properties fieldRulePropertyType="NAME" value="PSEUDO_${FIELDNAME}"/>
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Workbench-Demo/sets/names/names_last.set&quot;"/>
+  </rules>
+  <rules xsi:type="rules:FieldRule" name="BlurDOBRule" editor="blurWizard">
+    <properties fieldRulePropertyType="EXPRESSION" value="blur_date(${FIELDNAME}, &quot;1900-01-01&quot;, &quot;2020-01-01&quot;, 20)"/>
+    <properties fieldRulePropertyType="NAME" value="BLUR_${FIELDNAME}"/>
+  </rules>
+  <rules xsi:type="rules:FieldRule" name="FieldCustomRule" editor="pseudoWizard">
+    <properties fieldRulePropertyType="NAME" value="PSEUDO_${FIELDNAME}"/>
+    <properties fieldRulePropertyType="SET" value="&quot;W:/Files-for-Demos/Boyd/changeUpgradeType.set&quot;"/>
+  </rules>
+  <rules xsi:type="rules:FieldRule" name="FieldEncryptionRule" editor="cryptoWizard">
+    <properties fieldRulePropertyType="EXPRESSION" value="enc_fp_aes256_alphanum(${FIELDNAME})"/>
+    <properties fieldRulePropertyType="NAME" value="ENC_FP_${FIELDNAME}"/>
+  </rules>
+</rules:RuleLibrary>
+

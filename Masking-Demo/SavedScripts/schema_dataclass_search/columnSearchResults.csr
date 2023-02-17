@@ -1,0 +1,10 @@
+SQLServerDiffIRI
+IRI->Dim_Customer->MiddleName
+IRI->Dim_Customer->DOB
+IRI->Dim_Customer->CurrentPointBalance
+IRI->Dim_Customer->CurrentTierCreditBalnce
+IRI->Dim_CustomerCardLevel->UpgradeType
+IRI->Dim_CustomerCardLevel->CustomerCardNumber
+IRI->Dim_CustomerCardLevel->CustomerCardScore
+IRI->Dim_CustomerEmail->EmailAddress
+IRI->Dim_CustomerPhone->PhoneNumber

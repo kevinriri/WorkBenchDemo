@@ -1,0 +1,7 @@
+@echo off
+SETLOCAL
+sortcl /SPECIFICATION=SQLServerDiffIRI_IRI_Dim_Customer.scl
+sortcl /SPECIFICATION=SQLServerDiffIRI_IRI_Dim_CustomerCardLevel.scl
+sortcl /SPECIFICATION=SQLServerDiffIRI_IRI_Dim_CustomerEmail.scl
+sortcl /SPECIFICATION=SQLServerDiffIRI_IRI_Dim_CustomerPhone.scl
+echo Job Ended

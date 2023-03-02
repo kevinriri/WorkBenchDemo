@@ -1,0 +1,801 @@
+Author: kevinr
+Date: 2023-03-02 09:56:54
+----------------------------------------------------------------
+Table Name: HEALTHCARE.APPOINTMENT
+Column Name: APPIONTMENT_NOTES
+Data Type: VARCHAR
+Row Count: 30
+Distinct Count: 6
+Duplicate Count: 24
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: Doesn't Need to Come Back
+Max. Value: Sent to See a Specialist
+Min. Length: 13
+Max. Length: 25
+Avg. Length: 18
+Median Length: 14
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.APPOINTMENT
+Column Name: APPOINTMENT_NUMBER
+Data Type: VARCHAR
+Row Count: 30
+Distinct Count: 30
+Duplicate Count: 0
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: 047593589
+Max. Value: 561676804
+Min. Length: 9
+Max. Length: 9
+Avg. Length: 9
+Median Length: 9
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.APPOINTMENT
+Column Name: DOCTOR_ID
+Data Type: VARCHAR
+Row Count: 30
+Distinct Count: 20
+Duplicate Count: 10
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: DID0070327425
+Max. Value: DID7489180452
+Min. Length: 13
+Max. Length: 13
+Avg. Length: 13
+Median Length: 13
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.APPOINTMENT
+Column Name: PATIENT_ID
+Data Type: VARCHAR
+Row Count: 30
+Distinct Count: 20
+Duplicate Count: 10
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: PID0135167499
+Max. Value: PID6034971390
+Min. Length: 13
+Max. Length: 13
+Avg. Length: 13
+Median Length: 13
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.APPOINTMENT
+Column Name: REASON_TYPE
+Data Type: VARCHAR
+Row Count: 30
+Distinct Count: 21
+Duplicate Count: 9
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: Anxiety
+Max. Value: Upper respiratory Problems
+Min. Length: 7
+Max. Length: 33
+Avg. Length: 17
+Median Length: 12
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.APPOINTMENT
+Column Name: SCHEDULED_DATE
+Data Type: DATE
+Row Count: 30
+Distinct Count: 24
+Duplicate Count: 6
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: 2020-02-09
+Max. Value: 2020-12-06
+Min. Length: 10
+Max. Length: 10
+Avg. Length: 10
+Median Length: 10
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.APPOINTMENT
+Column Name: SCHEDULED_TIME
+Data Type: TIME
+Row Count: 30
+Distinct Count: 22
+Duplicate Count: 8
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: 09:00:00
+Max. Value: 16:50:00
+Min. Length: 8
+Max. Length: 8
+Avg. Length: 16
+Median Length: 16
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.BILL
+Column Name: AMOUNT_BILLED
+Data Type: DECIMAL
+Row Count: 30
+Distinct Count: 21
+Duplicate Count: 9
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: 100.56
+Max. Value: 94.40
+Min. Length: 5
+Max. Length: 6
+Avg. Length: 5
+Median Length: 5
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.BILL
+Column Name: AOUNT_PAID
+Data Type: DECIMAL
+Row Count: 30
+Distinct Count: 20
+Duplicate Count: 10
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: 1.81
+Max. Value: 8.63
+Min. Length: 4
+Max. Length: 5
+Avg. Length: 4
+Median Length: 4
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.BILL
+Column Name: APPOINTMENT_NUMBER
+Data Type: VARCHAR
+Row Count: 30
+Distinct Count: 19
+Duplicate Count: 11
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: 047593589
+Max. Value: 561676804
+Min. Length: 9
+Max. Length: 9
+Avg. Length: 9
+Median Length: 9
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.BILL
+Column Name: BILL_CREATED
+Data Type: DATE
+Row Count: 30
+Distinct Count: 26
+Duplicate Count: 4
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: 2020-01-05
+Max. Value: 2020-11-25
+Min. Length: 10
+Max. Length: 10
+Avg. Length: 10
+Median Length: 10
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.BILL
+Column Name: BILL_DUE
+Data Type: DATE
+Row Count: 30
+Distinct Count: 30
+Duplicate Count: 0
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: 1904-04-10
+Max. Value: 2022-08-30
+Min. Length: 10
+Max. Length: 10
+Avg. Length: 10
+Median Length: 10
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.BILL
+Column Name: BILL_NUMBER
+Data Type: VARCHAR
+Row Count: 30
+Distinct Count: 30
+Duplicate Count: 0
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: 022361103
+Max. Value: 620832765
+Min. Length: 9
+Max. Length: 9
+Avg. Length: 9
+Median Length: 9
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.DOCTOR
+Column Name: DOCTOR_EMAIL
+Data Type: VARCHAR
+Row Count: 30
+Distinct Count: 23
+Duplicate Count: 7
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: america.wiegand@gmail.com
+Max. Value: ukoch@halvorson.info
+Min. Length: 16
+Max. Length: 34
+Avg. Length: 22
+Median Length: 19
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.DOCTOR
+Column Name: DOCTOR_ID
+Data Type: VARCHAR
+Row Count: 30
+Distinct Count: 30
+Duplicate Count: 0
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: DID0070327425
+Max. Value: DID7489180452
+Min. Length: 13
+Max. Length: 13
+Avg. Length: 13
+Median Length: 13
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.DOCTOR
+Column Name: DOCTOR_NAME
+Data Type: VARCHAR
+Row Count: 30
+Distinct Count: 22
+Duplicate Count: 8
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: Dr. Alfred Kaemingk
+Max. Value: Dr. Valentina Nizo
+Min. Length: 13
+Max. Length: 21
+Avg. Length: 17
+Median Length: 16
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.DOCTOR
+Column Name: DOCTOR_PHONE_NUMBER
+Data Type: VARCHAR
+Row Count: 30
+Distinct Count: 24
+Duplicate Count: 6
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: 2723695626
+Max. Value: 9688352806
+Min. Length: 10
+Max. Length: 10
+Avg. Length: 10
+Median Length: 10
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.INSURANCE
+Column Name: INSURANCE_ID
+Data Type: VARCHAR
+Row Count: 30
+Distinct Count: 30
+Duplicate Count: 0
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: IID006885 
+Max. Value: IID597626 
+Min. Length: 10
+Max. Length: 10
+Avg. Length: 9
+Median Length: 9
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.INSURANCE
+Column Name: INSURANCE_NAME
+Data Type: VARCHAR
+Row Count: 30
+Distinct Count: 18
+Duplicate Count: 12
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: CrossPoint Medical
+Max. Value: The MinuteMD
+Min. Length: 10
+Max. Length: 30
+Avg. Length: 19
+Median Length: 15
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.INSURANCE
+Column Name: INSURANCE_PHONE_NUMBER
+Data Type: VARCHAR
+Row Count: 30
+Distinct Count: 13
+Duplicate Count: 17
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: 3938592527
+Max. Value: 9387284372
+Min. Length: 10
+Max. Length: 10
+Avg. Length: 10
+Median Length: 10
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.PATIENT
+Column Name: CITY
+Data Type: VARCHAR
+Row Count: 30
+Distinct Count: 30
+Duplicate Count: 0
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: Ada
+Max. Value: Virginia Beach
+Min. Length: 3
+Max. Length: 14
+Avg. Length: 8
+Median Length: 6
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.PATIENT
+Column Name: DOB
+Data Type: DATE
+Row Count: 30
+Distinct Count: 30
+Duplicate Count: 0
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: 1908-12-03
+Max. Value: 2019-08-04
+Min. Length: 10
+Max. Length: 10
+Avg. Length: 10
+Median Length: 10
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.PATIENT
+Column Name: EMAIL
+Data Type: VARCHAR
+Row Count: 30
+Distinct Count: 26
+Duplicate Count: 4
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: alejandra11@ledner.org
+Max. Value: vroberts@hotmail.com
+Min. Length: 17
+Max. Length: 29
+Avg. Length: 22
+Median Length: 19
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.PATIENT
+Column Name: FIRST_NAME
+Data Type: VARCHAR
+Row Count: 30
+Distinct Count: 30
+Duplicate Count: 0
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: Alfredrick
+Max. Value: Zyairra
+Min. Length: 4
+Max. Length: 11
+Avg. Length: 6
+Median Length: 5
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.PATIENT
+Column Name: INSURANCE_ID
+Data Type: VARCHAR
+Row Count: 30
+Distinct Count: 19
+Duplicate Count: 11
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: IID006885 
+Max. Value: IID575180 
+Min. Length: 10
+Max. Length: 10
+Avg. Length: 9
+Median Length: 9
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.PATIENT
+Column Name: LAST_NAME
+Data Type: VARCHAR
+Row Count: 30
+Distinct Count: 30
+Duplicate Count: 0
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: Abiola
+Max. Value: Ziccardi
+Min. Length: 3
+Max. Length: 10
+Avg. Length: 6
+Median Length: 5
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.PATIENT
+Column Name: MIDDLE_INITIAL
+Data Type: VARCHAR
+Row Count: 30
+Distinct Count: 18
+Duplicate Count: 12
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: A
+Max. Value: X
+Min. Length: 1
+Max. Length: 1
+Avg. Length: 1
+Median Length: 1
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.PATIENT
+Column Name: PATIENT_ID
+Data Type: VARCHAR
+Row Count: 30
+Distinct Count: 30
+Duplicate Count: 0
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: PID0135167499
+Max. Value: PID6034971390
+Min. Length: 13
+Max. Length: 13
+Avg. Length: 13
+Median Length: 13
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.PATIENT
+Column Name: PHONE
+Data Type: VARCHAR
+Row Count: 30
+Distinct Count: 24
+Duplicate Count: 6
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: 2295283466
+Max. Value: 8919154285
+Min. Length: 10
+Max. Length: 10
+Avg. Length: 10
+Median Length: 10
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.PATIENT
+Column Name: SSN
+Data Type: VARCHAR
+Row Count: 30
+Distinct Count: 30
+Duplicate Count: 0
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: 113665650
+Max. Value: 818314758
+Min. Length: 9
+Max. Length: 9
+Avg. Length: 9
+Median Length: 9
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.PATIENT
+Column Name: STATE
+Data Type: VARCHAR
+Row Count: 30
+Distinct Count: 23
+Duplicate Count: 7
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: AR
+Max. Value: WV
+Min. Length: 2
+Max. Length: 2
+Avg. Length: 2
+Median Length: 2
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.PATIENT
+Column Name: STREET
+Data Type: VARCHAR
+Row Count: 30
+Distinct Count: 30
+Duplicate Count: 0
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: 136 March Ln.
+Max. Value: 9379 Martin Rd.
+Min. Length: 12
+Max. Length: 21
+Avg. Length: 15
+Median Length: 13
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.PATIENT
+Column Name: ZIP
+Data Type: VARCHAR
+Row Count: 30
+Distinct Count: 27
+Duplicate Count: 3
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: 03864
+Max. Value: 99923
+Min. Length: 5
+Max. Length: 5
+Avg. Length: 5
+Median Length: 5
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.PATIENT_PRESCRIPTION
+Column Name: APPOINTMENT_NUMBER
+Data Type: VARCHAR
+Row Count: 30
+Distinct Count: 17
+Duplicate Count: 13
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: 047593589
+Max. Value: 561676804
+Min. Length: 9
+Max. Length: 9
+Avg. Length: 9
+Median Length: 9
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.PATIENT_PRESCRIPTION
+Column Name: DATE_STARTED
+Data Type: DATE
+Row Count: 30
+Distinct Count: 26
+Duplicate Count: 4
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: 2021-01-26
+Max. Value: 2021-12-03
+Min. Length: 10
+Max. Length: 10
+Avg. Length: 10
+Median Length: 10
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.PATIENT_PRESCRIPTION
+Column Name: DOSAGE
+Data Type: VARCHAR
+Row Count: 30
+Distinct Count: 11
+Duplicate Count: 19
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: 0.1
+Max. Value: 60
+Min. Length: 1
+Max. Length: 4
+Avg. Length: 2
+Median Length: 1
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.PATIENT_PRESCRIPTION
+Column Name: PATIENT_PRESCRIPTION_NUMBER
+Data Type: VARCHAR
+Row Count: 30
+Distinct Count: 30
+Duplicate Count: 0
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: PPN-02061
+Max. Value: PPN-60044
+Min. Length: 9
+Max. Length: 9
+Avg. Length: 9
+Median Length: 9
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.PATIENT_PRESCRIPTION
+Column Name: PRESCRIPTION_ID
+Data Type: VARCHAR
+Row Count: 30
+Distinct Count: 23
+Duplicate Count: 7
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: rx0261972
+Max. Value: rx7244858
+Min. Length: 9
+Max. Length: 9
+Avg. Length: 9
+Median Length: 9
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.PATIENT_PRESCRIPTION
+Column Name: SPECIAL_INSTRUCTIONS
+Data Type: VARCHAR
+Row Count: 30
+Distinct Count: 9
+Duplicate Count: 21
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: Daily
+Max. Value: Twice a day
+Min. Length: 5
+Max. Length: 18
+Avg. Length: 12
+Median Length: 10
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.PRESCRIPTION
+Column Name: PRESCRIPTION_ID
+Data Type: VARCHAR
+Row Count: 30
+Distinct Count: 30
+Duplicate Count: 0
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: rx0261972
+Max. Value: rx7244858
+Min. Length: 9
+Max. Length: 9
+Avg. Length: 9
+Median Length: 9
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.PRESCRIPTION
+Column Name: PRESCRIPTION_NAME
+Data Type: VARCHAR
+Row Count: 30
+Distinct Count: 20
+Duplicate Count: 10
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: Amlodipine
+Max. Value: Zolpidem
+Min. Length: 8
+Max. Length: 23
+Avg. Length: 12
+Median Length: 9
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------
+Table Name: HEALTHCARE.PRESCRIPTION
+Column Name: PRICE
+Data Type: DECIMAL
+Row Count: 30
+Distinct Count: 22
+Duplicate Count: 8
+Null Count: 0
+Empty Count: 0
+Value Count: 30
+Min. Value: 1.39
+Max. Value: 91.86
+Min. Length: 4
+Max. Length: 6
+Avg. Length: 5
+Median Length: 4
+Regular Expression Filter: Not Performed
+Values Filter: Not Performed
+
+----------------------------------------------------------------

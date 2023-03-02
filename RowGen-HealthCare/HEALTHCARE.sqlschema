@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SQLConstraints="http:///com/iri/datatools/modelbase/sql/constraints.ecore" xmlns:SQLDataTypes="http:///com/iri/datatools/modelbase/sql/datatypes.ecore" xmlns:SQLSchema="http:///com/iri/datatools/modelbase/sql/schema.ecore" xmlns:SQLTables="http:///com/iri/datatools/modelbase/sql/tables.ecore">
+  <SQLSchema:Database name="support" vendor="SQL Server" version="2016" schemas="/8"/>
+  <SQLTables:PersistentTable name="APPOINTMENT" schema="/8">
+    <columns name="APPOINTMENT_NUMBER" nullable="false">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="9"/>
+    </columns>
+    <columns name="PATIENT_ID" nullable="false">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="13"/>
+    </columns>
+    <columns name="DOCTOR_ID" nullable="false">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="13"/>
+    </columns>
+    <columns name="REASON_TYPE">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="50"/>
+    </columns>
+    <columns name="SCHEDULED_TIME">
+      <containedType xsi:type="SQLDataTypes:TimeDataType" name="TIME" primitiveType="TIME" fractionalSecondsPrecision="7"/>
+    </columns>
+    <columns name="SCHEDULED_DATE">
+      <containedType xsi:type="SQLDataTypes:DateDataType" name="DATE" primitiveType="DATE"/>
+    </columns>
+    <columns name="APPIONTMENT_NOTES">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="255"/>
+    </columns>
+    <constraints xsi:type="SQLConstraints:PrimaryKey" name="PK__APPOINTM__5671945222DE079E" members="/1/APPOINTMENT_NUMBER" ForeignKey="/2/FK__BILL__APPOINTMEN__0A338187 /6/FK__PATIENT_P__PATIE__02925FBF"/>
+    <constraints xsi:type="SQLConstraints:ForeignKey" name="FK__APPOINTME__DOCTO__0662F0A3" members="/1/DOCTOR_ID" uniqueConstraint="/3/PK__DOCTOR__596ABDB026EFB1D8"/>
+    <constraints xsi:type="SQLConstraints:ForeignKey" name="FK__APPOINTME__PATIE__075714DC" members="/1/PATIENT_ID" uniqueConstraint="/5/PK__PATIENT__AA0B6068CF0AB4AA"/>
+  </SQLTables:PersistentTable>
+  <SQLTables:PersistentTable name="BILL" schema="/8">
+    <columns name="BILL_NUMBER" nullable="false">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="9"/>
+    </columns>
+    <columns name="APPOINTMENT_NUMBER" nullable="false">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="9"/>
+    </columns>
+    <columns name="AMOUNT_BILLED">
+      <containedType xsi:type="SQLDataTypes:FixedPrecisionDataType" name="DECIMAL" primitiveType="DECIMAL" precision="8" scale="2"/>
+    </columns>
+    <columns name="AOUNT_PAID">
+      <containedType xsi:type="SQLDataTypes:FixedPrecisionDataType" name="DECIMAL" primitiveType="DECIMAL" precision="8" scale="2"/>
+    </columns>
+    <columns name="BILL_CREATED">
+      <containedType xsi:type="SQLDataTypes:DateDataType" name="DATE" primitiveType="DATE"/>
+    </columns>
+    <columns name="BILL_DUE">
+      <containedType xsi:type="SQLDataTypes:DateDataType" name="DATE" primitiveType="DATE"/>
+    </columns>
+    <constraints xsi:type="SQLConstraints:PrimaryKey" name="PK__BILL__009D37199639A2CC" members="/2/BILL_NUMBER"/>
+    <constraints xsi:type="SQLConstraints:ForeignKey" name="FK__BILL__APPOINTMEN__0A338187" members="/2/APPOINTMENT_NUMBER" uniqueConstraint="/1/PK__APPOINTM__5671945222DE079E"/>
+  </SQLTables:PersistentTable>
+  <SQLTables:PersistentTable name="DOCTOR" schema="/8">
+    <columns name="DOCTOR_ID" nullable="false">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="13"/>
+    </columns>
+    <columns name="DOCTOR_NAME">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="60"/>
+    </columns>
+    <columns name="DOCTOR_EMAIL">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="60"/>
+    </columns>
+    <columns name="DOCTOR_PHONE_NUMBER">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="10"/>
+    </columns>
+    <constraints xsi:type="SQLConstraints:PrimaryKey" name="PK__DOCTOR__596ABDB026EFB1D8" members="/3/DOCTOR_ID" ForeignKey="/1/FK__APPOINTME__DOCTO__0662F0A3"/>
+  </SQLTables:PersistentTable>
+  <SQLTables:PersistentTable name="INSURANCE" schema="/8">
+    <columns name="INSURANCE_ID" nullable="false">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="10"/>
+    </columns>
+    <columns name="INSURANCE_NAME">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="50"/>
+    </columns>
+    <columns name="INSURANCE_PHONE_NUMBER">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="10"/>
+    </columns>
+    <constraints xsi:type="SQLConstraints:PrimaryKey" name="PK__INSURANC__F95F60DC49A9E1BE" members="/4/INSURANCE_ID" ForeignKey="/5/FK__PATIENT__INSURANCE__0A338187"/>
+  </SQLTables:PersistentTable>
+  <SQLTables:PersistentTable name="PATIENT" schema="/8">
+    <columns name="PATIENT_ID" nullable="false">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="13"/>
+    </columns>
+    <columns name="FIRST_NAME">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="50"/>
+    </columns>
+    <columns name="LAST_NAME">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="50"/>
+    </columns>
+    <columns name="MIDDLE_INITIAL">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" name="VARCHAR" primitiveType="CHARACTER_VARYING"/>
+    </columns>
+    <columns name="STREET">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="60"/>
+    </columns>
+    <columns name="CITY">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="50"/>
+    </columns>
+    <columns name="STATE">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="2"/>
+    </columns>
+    <columns name="ZIP">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="5"/>
+    </columns>
+    <columns name="EMAIL">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="60"/>
+    </columns>
+    <columns name="PHONE">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="10"/>
+    </columns>
+    <columns name="SSN">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="9"/>
+    </columns>
+    <columns name="INSURANCE_ID" nullable="false">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="10"/>
+    </columns>
+    <constraints xsi:type="SQLConstraints:PrimaryKey" name="PK__PATIENT__AA0B6068CF0AB4AA" members="/5/PATIENT_ID" ForeignKey="/1/FK__APPOINTME__PATIE__075714DC"/>
+    <constraints xsi:type="SQLConstraints:ForeignKey" name="FK__PATIENT__INSURANCE__0A338187" members="/5/INSURANCE_ID" uniqueConstraint="/4/PK__INSURANC__F95F60DC49A9E1BE"/>
+  </SQLTables:PersistentTable>
+  <SQLTables:PersistentTable name="PATIENT_PRESCRIPTION" schema="/8">
+    <columns name="PATIENT_PRESCRIPTION_NUMBER" nullable="false">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="9"/>
+    </columns>
+    <columns name="APPOINTMENT_NUMBER" nullable="false">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="9"/>
+    </columns>
+    <columns name="PRESCRIPTION_ID" nullable="false">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="9"/>
+    </columns>
+    <columns name="DATE_STARTED">
+      <containedType xsi:type="SQLDataTypes:DateDataType" name="DATE" primitiveType="DATE"/>
+    </columns>
+    <columns name="DOSAGE">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="5"/>
+    </columns>
+    <columns name="SPECIAL_INSTRUCTIONS">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="255"/>
+    </columns>
+    <constraints xsi:type="SQLConstraints:PrimaryKey" name="PK__PATIENT___CEF21AA9C35E8528" members="/6/PATIENT_PRESCRIPTION_NUMBER"/>
+    <constraints xsi:type="SQLConstraints:ForeignKey" name="FK__PATIENT_P__PATIE__02925FBF" members="/6/APPOINTMENT_NUMBER" uniqueConstraint="/1/PK__APPOINTM__5671945222DE079E"/>
+    <constraints xsi:type="SQLConstraints:ForeignKey" name="FK__PATIENT_P__PRESC__038683F8" members="/6/PRESCRIPTION_ID" uniqueConstraint="/7/PK__PRESCRIP__83756B5F6443BDDC"/>
+  </SQLTables:PersistentTable>
+  <SQLTables:PersistentTable name="PRESCRIPTION" schema="/8">
+    <columns name="PRESCRIPTION_ID" nullable="false">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="9"/>
+    </columns>
+    <columns name="PRESCRIPTION_NAME">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="50"/>
+    </columns>
+    <columns name="PRICE">
+      <containedType xsi:type="SQLDataTypes:FixedPrecisionDataType" name="DECIMAL" primitiveType="DECIMAL" precision="8" scale="2"/>
+    </columns>
+    <constraints xsi:type="SQLConstraints:PrimaryKey" name="PK__PRESCRIP__83756B5F6443BDDC" members="/7/PRESCRIPTION_ID" ForeignKey="/6/FK__PATIENT_P__PRESC__038683F8"/>
+  </SQLTables:PersistentTable>
+  <SQLSchema:Schema name="HEALTHCARE" tables="/1 /2 /3 /4 /5 /6 /7" database="/0"/>
+</xmi:XMI>

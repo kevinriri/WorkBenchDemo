@@ -1,0 +1,46 @@
+Author: kevinr
+Date: 2023-03-02 09:56:54
+----------------------------------------------------------------
+Test:PASSED
+Primary Key: INSURANCE_ID
+Foreign Key: INSURANCE_ID
+
+Failed Foreign Key Cases:
+--------------------------------------------------------------------------
+
+NoneTest:PASSED
+Primary Key: PATIENT_ID
+Foreign Key: PATIENT_ID
+
+Failed Foreign Key Cases:
+--------------------------------------------------------------------------
+
+NoneTest:PASSED
+Primary Key: DOCTOR_ID
+Foreign Key: DOCTOR_ID
+
+Failed Foreign Key Cases:
+--------------------------------------------------------------------------
+
+NoneTest:PASSED
+Primary Key: APPOINTMENT_NUMBER
+Foreign Key: APPOINTMENT_NUMBER
+
+Failed Foreign Key Cases:
+--------------------------------------------------------------------------
+
+NoneTest:PASSED
+Primary Key: APPOINTMENT_NUMBER
+Foreign Key: APPOINTMENT_NUMBER
+
+Failed Foreign Key Cases:
+--------------------------------------------------------------------------
+
+NoneTest:PASSED
+Primary Key: PRESCRIPTION_ID
+Foreign Key: PRESCRIPTION_ID
+
+Failed Foreign Key Cases:
+--------------------------------------------------------------------------
+
+None

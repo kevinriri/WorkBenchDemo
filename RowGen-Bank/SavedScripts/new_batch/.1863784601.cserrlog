@@ -1,0 +1,33 @@
+CoSort error log started: 2023-02-20 08:50:30
+
+CoSort 10.5.1 D105220317-1540 x86_32 #99999.9999
+Filename: C:\IRI\cosort105\etc\cosort.rc
+	MONITOR_LEVEL            1
+	PRESERVE_ERROR_LOG       ON
+Initialization started... Initialization done
+Command: /SPECIFICATION=KEVINR_CUSTOMER.rcl 
+Loaded Module: libcsodbc, Id: d1884e7a087c3765768d466a2f3bdc755f34601b 
+Auto Tune - enabled - No Sort in Memory
+checking cutback: starting memory per thread 41943040 
+cutback done, memory_max: 167772160
+    memory_perthread_max: 10485760
+       initial recsinmem: 6291456 (50331656 bytes)
+Sort operation phase1 started...
+Sort operation phase1 done
+Sort operation phase2 started...
+t0: cpus 4 f_used 0 strt 0 len 0 mcpus 1
+SQL DBMS Name: DB2/LINUXX8664
+SQL DBMS Version: 11.01.0000
+SQL Driver Name: DB2CLI.DLL
+SQL Driver Version: 11.01.0303
+[ODBC][DB2/LINUXX8664] auto commit mode = 1
+[ODBC][DB2/LINUXX8664] parameter array size = 1024
+Sort operation phase2 done
+Buffers cleanup started... Buffers cleanup done
+
+Blocksize  Memorysize  ExtMaxMemory  RecsInMemory  Buffers    LWF
+    600kb       160mb          40mb        6144kb        2      0
+
+Resources cleanup started... Resources cleanup done
+
+CoSort error log done: 2023-02-20 08:50:31

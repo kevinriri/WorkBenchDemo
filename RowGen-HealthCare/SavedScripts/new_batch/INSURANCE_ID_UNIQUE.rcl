@@ -1,0 +1,21 @@
+# Generated with IRI Workbench - New Database Test Data Job
+#
+ # Author: kevinr
+ # Created: 2023-03-02 15:22:41
+ #
+
+/INFILES=uniqueseedgeneration
+	/PROCESS=RANDOM
+	/ALIAS=uniqueseedgeneration
+	/INCOLLECT=100
+	/FIELD=(INSURANCE_ID, TYPE=ALPHA_DIGIT, POSITION=1, SEPARATOR="\t", ODEF="INSURANCE_ID", SET="W:/Gits/git-workbench-demos/WorkBenchDemo/RowGen-HealthCare/SetFiles/InsuranceID.set" SELECT=ANY)
+
+/SORT
+	/KEY=(INSURANCE_ID)
+	/NODUPLICATES
+
+/OUTFILE=W:/Gits/git-workbench-demos/WorkBenchDemo/RowGen-HealthCare/SavedScripts/new_batch/INSURANCE_ID.sed
+	/PROCESS=RECORD
+	/OUTCOLLECT=50
+	/FIELD=(INSURANCE_ID, TYPE=ALPHA_DIGIT, POSITION=1, SEPARATOR="\t", ODEF="INSURANCE_ID")
+

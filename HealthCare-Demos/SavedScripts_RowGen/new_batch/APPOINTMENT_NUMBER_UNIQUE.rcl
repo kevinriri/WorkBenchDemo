@@ -1,0 +1,21 @@
+# Generated with IRI Workbench - New Database Test Data Job
+#
+ # Author: kevinr
+ # Created: 2023-04-03 15:05:39
+ #
+
+/INFILE=uniqueseedgeneration
+	/PROCESS=RANDOM
+	/ALIAS=uniqueseedgeneration
+	/INCOLLECT=100
+	/FIELD=(APPOINTMENT_NUMBER, TYPE=ALPHA_DIGIT, POSITION=1, SEPARATOR="\t", ODEF="APPOINTMENT_NUMBER", SET="W:/Gits/git-workbench-demos/WorkBenchDemo/HealthCare-Demos/SetFiles/AppointmentNumber.set" SELECT=ANY)
+
+/SORT
+	/KEY=(APPOINTMENT_NUMBER)
+	/NODUPLICATES
+
+/OUTFILE=W:/Gits/git-workbench-demos/WorkBenchDemo/HealthCare-Demos/SavedScripts_RowGen/new_batch/APPOINTMENT_NUMBER.sed
+	/PROCESS=RECORD
+	/OUTCOLLECT=50
+	/FIELD=(APPOINTMENT_NUMBER, TYPE=ALPHA_DIGIT, POSITION=1, SEPARATOR="\t", ODEF="APPOINTMENT_NUMBER")
+

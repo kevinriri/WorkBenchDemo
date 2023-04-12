@@ -1,0 +1,21 @@
+# Generated with IRI Workbench - New Database Test Data Job
+#
+ # Author: kevinr
+ # Created: 2023-04-03 15:05:41
+ #
+
+/INFILE=uniqueseedgeneration
+	/PROCESS=RANDOM
+	/ALIAS=uniqueseedgeneration
+	/INCOLLECT=100
+	/FIELD=(PATIENT_PRESCRIPTION_NUMBER, TYPE=ALPHA_DIGIT, POSITION=1, SEPARATOR="\t", ODEF="PATIENT_PRESCRIPTION_NUMBER", SET="W:/Gits/git-workbench-demos/WorkBenchDemo/HealthCare-Demos/SetFiles/PatientPerscriptionNumber.set" SELECT=ANY)
+
+/SORT
+	/KEY=(PATIENT_PRESCRIPTION_NUMBER)
+	/NODUPLICATES
+
+/OUTFILE=W:/Gits/git-workbench-demos/WorkBenchDemo/HealthCare-Demos/SavedScripts_RowGen/new_batch/PATIENT_PRESCRIPTION_NUMBER.sed
+	/PROCESS=RECORD
+	/OUTCOLLECT=50
+	/FIELD=(PATIENT_PRESCRIPTION_NUMBER, TYPE=ALPHA_DIGIT, POSITION=1, SEPARATOR="\t", ODEF="PATIENT_PRESCRIPTION_NUMBER")
+

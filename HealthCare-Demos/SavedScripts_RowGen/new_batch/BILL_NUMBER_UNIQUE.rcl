@@ -1,0 +1,21 @@
+# Generated with IRI Workbench - New Database Test Data Job
+#
+ # Author: kevinr
+ # Created: 2023-04-03 15:05:40
+ #
+
+/INFILE=uniqueseedgeneration
+	/PROCESS=RANDOM
+	/ALIAS=uniqueseedgeneration
+	/INCOLLECT=100
+	/FIELD=(BILL_NUMBER, TYPE=ALPHA_DIGIT, POSITION=1, SEPARATOR="\t", ODEF="BILL_NUMBER", SET="W:/Gits/git-workbench-demos/WorkBenchDemo/HealthCare-Demos/SetFiles/BillNumber.set" SELECT=ANY)
+
+/SORT
+	/KEY=(BILL_NUMBER)
+	/NODUPLICATES
+
+/OUTFILE=W:/Gits/git-workbench-demos/WorkBenchDemo/HealthCare-Demos/SavedScripts_RowGen/new_batch/BILL_NUMBER.sed
+	/PROCESS=RECORD
+	/OUTCOLLECT=50
+	/FIELD=(BILL_NUMBER, TYPE=ALPHA_DIGIT, POSITION=1, SEPARATOR="\t", ODEF="BILL_NUMBER")
+
